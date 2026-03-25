@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://qyxxk2whubgx"]
+
+[ext_resource type="Script" uid="uid://4p5u1taskv23" path="res://assets/Planet.gd" id="1_l11gs"]
+
+[node name="Planet" type="Sprite2D" unique_id=567864503]
+script = ExtResource("1_l11gs")
