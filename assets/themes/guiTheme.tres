@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://bce45pjp7kcpq"]
+
+[sub_resource type="SystemFont" id="SystemFont_rb875"]
+
+[resource]
+default_font = SubResource("SystemFont_rb875")
+default_font_size = 10
+RichTextLabel/font_sizes/bold_font_size = 16
