@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b76xufvnlyj5o"]
 
 [ext_resource type="Script" uid="uid://b7ljqf3r4smx3" path="res://entities/scripts/solar_system.gd" id="1_e8mfr"]
-[ext_resource type="Texture2D" uid="uid://daidnpq10njqh" path="res://assets/planets/placeHolderSun_1_48x48.png" id="1_ovxem"]
+[ext_resource type="Texture2D" uid="uid://4ed0p6j57kgj" path="res://assets/planets/sun1.png.png" id="2_e8mfr"]
 
 [node name="solarSystem" type="Node2D" unique_id=942150147]
 script = ExtResource("1_e8mfr")
@@ -9,4 +9,4 @@ script = ExtResource("1_e8mfr")
 [node name="Star" type="Node2D" parent="." unique_id=248891722]
 
 [node name="Sprite2D" type="Sprite2D" parent="Star" unique_id=954290961]
-texture = ExtResource("1_ovxem")
+texture = ExtResource("2_e8mfr")
