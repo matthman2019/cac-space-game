@@ -6,3 +6,24 @@
 
 [node name="solarSystem" parent="." unique_id=942150147 instance=ExtResource("1_dihm6")]
 position = Vector2(586, 300)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1329744980]
+offset = Vector2(800, 450)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1103718539]
+follow_viewport_enabled = true
+
+[node name="Gui" type="Control" parent="Camera2D/CanvasLayer" unique_id=1904210949]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Text Thing" type="Label" parent="Camera2D/CanvasLayer/Gui" unique_id=1996680932]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Heyo!"
