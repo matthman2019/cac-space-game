@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dx3jiaxn7me3s"]
+
+[ext_resource type="PackedScene" uid="uid://b76xufvnlyj5o" path="res://entities/scenes/solarSystem.tscn" id="1_dihm6"]
+
+[node name="GAME" type="Node2D" unique_id=2041336532]
+
+[node name="solarSystem" parent="." unique_id=942150147 instance=ExtResource("1_dihm6")]
+position = Vector2(586, 300)

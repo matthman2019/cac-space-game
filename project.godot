@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="CAC Space Game"
+run/main_scene="uid://dx3jiaxn7me3s"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icons/icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [physics]
 
