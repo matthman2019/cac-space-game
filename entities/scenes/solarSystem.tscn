@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b76xufvnlyj5o"]
 
 [ext_resource type="Script" uid="uid://b7ljqf3r4smx3" path="res://entities/scripts/solar_system.gd" id="1_e8mfr"]
-[ext_resource type="Texture2D" uid="uid://4ed0p6j57kgj" path="res://assets/planets/sun1.png.png" id="2_e8mfr"]
+[ext_resource type="Texture2D" uid="uid://4ed0p6j57kgj" path="res://assets/planets/sun1.png" id="2_e8mfr"]
 
 [node name="solarSystem" type="Node2D" unique_id=942150147]
 script = ExtResource("1_e8mfr")

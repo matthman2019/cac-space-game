@@ -2,7 +2,7 @@ extends Node2D
 
 var planet_scene = preload("res://entities/scenes/planet.tscn")
 
-#@onready var sprite = $Sprite
+@onready var sprite = $Star/Sprite2D
 
 var starMass: float
 var starLife: float
@@ -12,10 +12,10 @@ func _ready() -> void:
 	add_planet(80.0)
 	add_planet(160.0)
 	add_planet(260.0)
-	rotation_speed = -100
+	rotation_speed = randf_range(0.05, 0.2) * ([-1, 1].pick_random())
 
 func _process(delta: float) -> void:
-	#sprite.rotation = rotation_speed*delta
+	sprite.rotation += rotation_speed * delta
 
 func add_planet(orbit: float) -> void:
 	var planet = planet_scene.instantiate()
