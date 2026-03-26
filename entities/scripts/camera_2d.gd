@@ -2,6 +2,7 @@ extends Camera2D
 
 var dragging: bool = false
 var drag_start: Vector2
+var has_dragged: bool = false
 
 var zoom_min: float = 0.1
 var zoom_max: float = 8.0
@@ -18,8 +19,8 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				dragging = true
+				has_dragged = false
 				drag_start = get_global_mouse_position()
-				followed_planet = null
 			else:
 				dragging = false
 
@@ -38,4 +39,6 @@ func _input(event):
 			position += mouse_before - get_global_mouse_position()
 		
 	if event is InputEventMouseMotion and dragging:
+		has_dragged = true
+		followed_planet = null
 		position -= event.relative / zoom.x
