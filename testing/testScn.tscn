@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbnowu1ka1x22"]
 
 [ext_resource type="Texture2D" uid="uid://cg5elh88kj4uf" path="res://assets/Boi3.png" id="1_oxq81"]
+[ext_resource type="Texture2D" uid="uid://bja7bry6kxtam" path="res://assets/Plub.png" id="2_r1j2m"]
 
 [node name="Node2D" type="Node2D" unique_id=1941685348]
 
@@ -8,3 +9,8 @@
 position = Vector2(267, 256.00003)
 scale = Vector2(11.6875, 11.6875)
 texture = ExtResource("1_oxq81")
+
+[node name="Plub" type="Sprite2D" parent="." unique_id=1426275739]
+position = Vector2(684, 390)
+scale = Vector2(9.8125, 9.8125)
+texture = ExtResource("2_r1j2m")
