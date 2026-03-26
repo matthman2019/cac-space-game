@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dx3jiaxn7me3s"]
 
 [ext_resource type="PackedScene" uid="uid://b76xufvnlyj5o" path="res://entities/scenes/solarSystem.tscn" id="1_dihm6"]
+[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/camera_2d.gd" id="2_0m8qs"]
 
 [node name="GAME" type="Node2D" unique_id=2041336532]
 
@@ -9,6 +10,7 @@ position = Vector2(586, 300)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1329744980]
 offset = Vector2(800, 450)
+script = ExtResource("2_0m8qs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1103718539]
 follow_viewport_enabled = true
