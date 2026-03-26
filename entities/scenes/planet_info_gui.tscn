@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dmrjiu63iutwy"]
+
+[ext_resource type="Script" path="res://entities/scripts/PlanetInfoGUI.gd" id="1_mxsox"]
+[ext_resource type="Theme" uid="uid://bce45pjp7kcpq" path="res://assets/themes/guiTheme.tres" id="2_hmlbt"]
+
+[node name="PlanetInfoGUI" type="Control" unique_id=1961054574]
+layout_mode = 3
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mxsox")
+
+[node name="PanelContainer" type="Panel" parent="." unique_id=1134137268]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="RichTextLabel" parent="PanelContainer" unique_id=892255587]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 25.0
+text = "Planet Name"
+
+[node name="Description" type="RichTextLabel" parent="PanelContainer" unique_id=552169741]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 200.0
+offset_bottom = 100.0
+theme = ExtResource("2_hmlbt")
+bbcode_enabled = true
+text = "Average Temperature: [color=cyan] 67 K [/color]
+Resources: Wood, Copper, [color=yellow]Tungsten[/color]
+Size: 67 km [color=red] idk I just need to fill up space[/color]"
