@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dmrjiu63iutwy"]
 
-[ext_resource type="Script" path="res://entities/scripts/PlanetInfoGUI.gd" id="1_mxsox"]
+[ext_resource type="Script" uid="uid://byi5f4ivq70b7" path="res://interface/UIscripts/PlanetInfoGUI.gd" id="1_mxsox"]
 [ext_resource type="Theme" uid="uid://bce45pjp7kcpq" path="res://assets/themes/guiTheme.tres" id="2_hmlbt"]
 
 [node name="PlanetInfoGUI" type="Control" unique_id=1961054574]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
