@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6slyvtgodho1"]
+
+[ext_resource type="Shader" uid="uid://3dyi6xpnjufd" path="res://entities/shaderScripts/planetShader.gdshader" id="1_cxmm2"]
+[ext_resource type="Texture2D" uid="uid://ba4umu0vt1u78" path="res://assets/planets/Gray Gas 30 by 30.png" id="2_2rf37"]
+[ext_resource type="Script" uid="uid://c8u462c3cu5we" path="res://entities/scripts/shaded_planet_sprite_test.gd" id="3_2rf37"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58407"]
+shader = ExtResource("1_cxmm2")
+shader_parameter/darkColor = Vector3(0, 0, 0)
+shader_parameter/lightColor = Vector3(0.5, 0.2, 0.3)
+shader_parameter/rainbow = true
+
+[node name="ShadedPlanet" type="Sprite2D" unique_id=556070311]
+material = SubResource("ShaderMaterial_58407")
+position = Vector2(197.5, 119.49999)
+scale = Vector2(4.3666663, 4.3666663)
+texture = ExtResource("2_2rf37")
+script = ExtResource("3_2rf37")
