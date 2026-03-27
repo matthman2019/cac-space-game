@@ -4,7 +4,7 @@ var dragging: bool = false
 var drag_start: Vector2
 var has_dragged: bool = false
 
-var zoom_min: float = 0.1
+var zoom_min: float = 0.08
 var zoom_max: float = 8.0
 var zoom_speed: float = 0.1
 

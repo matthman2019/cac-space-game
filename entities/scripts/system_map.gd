@@ -1,79 +1,76 @@
+class_name SystemMap
 extends Node2D
 
-
+var solar_system_scene = preload("res://entities/scenes/solarSystem.tscn")
 
 class StarData:
-	var name : String = "Star"
-	var color : Color = Color.GREEN
-	var size : StarGeneration.StarSize = StarGeneration.StarSize.O
-	func _init(starName : String, starColor : Color, starSize : StarGeneration.StarSize):
+	var name: String = "Star"
+	var color: Color = Color.WHITE
+	var size: float = 1.0
+	func _init(starName: String, starColor: Color, starSize: float):
 		name = starName
 		color = starColor
 		size = starSize
 
-
-
 class PlanetData:
-	var size = 6 or 7
-	var temperature = 6 or 7
-	var order = 1
-	var resources = []
-	func _init(planetSize : int, planetTemp : int, systemOrder : int, planetResources : Array):
+	var size: int = 0
+	var temperature: int = 0
+	var order: int = 1
+	var resources: Array = []
+	func _init(planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array):
 		size = planetSize
 		temperature = planetTemp
 		order = systemOrder
 		resources = planetResources
 
 class System:
-	var location : Vector2 = Vector2(0, 0)
-	var planets : Array[PlanetData] = []
-	var stars : Array[StarData] = []
-	func _init(pos : Vector2, planetList : Array[PlanetData], starList : Array[StarData]):
+	var location: Vector2 = Vector2(0, 0)
+	var planets: Array = []
+	var stars: Array = []
+	func _init(pos: Vector2, planetList: Array, starList: Array):
 		location = pos
 		planets = planetList
 		stars = starList
-	
-# for now, lets say 2 pixels is two light years.
 
-# Generation Parameters
+var UNIVERSE_SEED: int = 67676
+var GALAXY_RADIUS: int = 500
+var GALAXY_CENTER: Vector2 = Vector2(0, 0)
+var MIN_SYSTEMS: int = 10
+var MAX_SYSTEMS: int = 15
+var MIN_PLANETS: int = 1
+var MAX_PLANETS: int = 6
+var MIN_PLANET_SIZE: int = 10
+var MAX_PLANET_SIZE: int = 100
+var MIN_PLANET_TEMP: int = 40
+var MAX_PLANET_TEMP: int = 1000
 
-## Seed is the seed that we're using to make our universe
-var seed : int = 42
-## radius is the size of the galaxy (in light-years)
-var radius : int = 200
-## center is the center position of the galaxy
-var center : Vector2 = Vector2(0, 0)
+var systemList: Array = []
 
-var systemList : Array[System] = []
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var rng = GlobalRNG.rng # this SHOULD be passed by reference.
-	rng.seed = seed
-	
-	# System generation
-	for i in range(rng.randi_range(200, 250)):
-		# we do it like this for an even spread of systems
-		var pos = Vector2(radius, radius)
-		while (pos - center).length() > radius:
-			pos = Vector2(rng.randf_range(-radius, radius), rng.randf_range(-radius, radius))
-		
-		# planet generation
-		var planetList : Array[PlanetData] = []
-		for j in range(1, rng.randi_range(2, 7)):
-			var newSize = rng.randi_range(10, 100)
-			var newTemperature = rng.randi_range(40, 1000)
-			var newPlanet = PlanetData.new(newSize, newTemperature, j, [])
-			planetList.append(newPlanet)
-		
-		# star generation
+	GlobalRNG.rng.seed = UNIVERSE_SEED
+
+	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
+		var pos = Vector2(GALAXY_RADIUS * 2, GALAXY_RADIUS * 2)
+		while (pos - GALAXY_CENTER).length() > GALAXY_RADIUS:
+			pos = Vector2(
+				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS),
+				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
+			)
+
+		var planetList: Array = []
+		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
+			planetList.append(PlanetData.new(
+				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
+				GlobalRNG.rng.randi_range(MIN_PLANET_TEMP, MAX_PLANET_TEMP),
+				j,
+				[]
+			))
+
 		var starArray = StarGeneration.MakeStar()
-		var star = StarData.new(starArray[0], starArray[1], starArray[2])
-		
-		var system = System.new(pos, planetList, [star])
+		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
 		systemList.append(system)
-	
-	
-func _draw():
-	for system in systemList:
-		draw_circle(system.location, system.stars[0].size, system.stars[0].color)
+
+		var solarSys = solar_system_scene.instantiate()
+		solarSys.position = pos
+		add_child(solarSys)
+		solarSys.load_system(system)
