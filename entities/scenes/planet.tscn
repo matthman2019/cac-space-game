@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qyxxk2whubgx"]
 
 [ext_resource type="Script" uid="uid://4p5u1taskv23" path="res://entities/scripts/Planet.gd" id="1_l11gs"]
-[ext_resource type="Texture2D" uid="uid://bccavllw5dxs0" path="res://assets/planets/planet1.png" id="2_nktd4"]
+[ext_resource type="Texture2D" uid="uid://wvlnh8ucpqr2" path="res://assets/planets/Yello + blue gass.png" id="2_nktd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nktd4"]
 radius = 14.035668

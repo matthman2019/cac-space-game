@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daidnpq10njqh"
-path="res://.godot/imported/placeHolderSun_1_48x48.png-e6a8bb0bd0a630dd910f21d9d66c6e6b.ctex"
+uid="uid://2o8yc350f5rm"
+path="res://.godot/imported/Tidaly Locked small.png-c9458417e1db25283744a49d6bec6532.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/placeHolderSun_1_48x48.png"
-dest_files=["res://.godot/imported/placeHolderSun_1_48x48.png-e6a8bb0bd0a630dd910f21d9d66c6e6b.ctex"]
+source_file="res://assets/planets/Tidaly Locked small.png"
+dest_files=["res://.godot/imported/Tidaly Locked small.png-c9458417e1db25283744a49d6bec6532.ctex"]
 
 [params]
 
