@@ -4,6 +4,17 @@ extends Node2D
 var MIN_SPIN_SPEED: float = 0.3
 var MAX_SPIN_SPEED: float = 1.0
 
+var text1 = load("res://assets/planets/Large red Gas + rings.png")
+var text2 = load("res://assets/planets/Large red Gas.png")
+var text3 = load("res://assets/planets/Pink gass 25 by 25.png")
+var text4 = load("res://assets/planets/planet1.png")
+var text5 = load("res://assets/planets/Rocky 15 pix.png")
+var text6 = load("res://assets/planets/Tidaly Locked small.png")
+var text7 = load("res://assets/planets/Yello + blue gass.png")
+
+var TEXTURE_LIST = [text1,text2,text3,text4,text5,text6,text7]
+@onready var Sprite: Sprite2D = $Sprite
+
 var planet_size: int = 0
 var planet_temperature: int = 0
 var planet_order: int = 1
@@ -39,7 +50,9 @@ func _process(delta: float) -> void:
 func _ready():
 	$Area2D.connect("input_event", _on_static_body_2d_input_event)
 	$Area2D.connect("mouse_exited", _on_static_body_2d_mouse_exited)
-
+	
+	Sprite.texture = TEXTURE_LIST.pick_random()
+	
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and not click:
 		click = true

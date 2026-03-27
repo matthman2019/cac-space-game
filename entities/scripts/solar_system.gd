@@ -4,8 +4,9 @@ var planet_scene = preload("res://entities/scenes/planet.tscn")
 
 @onready var star_sprite = $Star/Sprite2D
 
-var BASE_ORBIT_DISTANCE: float = 40.0
-var ORBIT_SPACING: float = 100.0
+var BASE_ORBIT_DISTANCE: float = 100.0
+var MIN_ORBIT_SPACING: float = 160.0
+var MAX_ORBIT_SPACING: float = 250.0
 var MIN_STAR_ROTATION: float = 0.05
 var MAX_STAR_ROTATION: float = 0.2
 var STAR_BASE_SCALE: float = 1.0
@@ -28,7 +29,8 @@ func load_system(system) -> void:
 
 	if system == null:
 		for i in range(3):
-			add_planet(BASE_ORBIT_DISTANCE + i * ORBIT_SPACING,"Fallback Star", null)
+			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING,MAX_ORBIT_SPACING)
+			add_planet(BASE_ORBIT_DISTANCE + i * orbitDist,"Fallback Star", null)
 		return
 
 	star_name = system.stars[0].name
@@ -38,7 +40,8 @@ func load_system(system) -> void:
 	star_sprite.scale = Vector2(s, s)
 
 	for planet_data in system.planets:
-		var orbit = BASE_ORBIT_DISTANCE + (planet_data.order - 1) * ORBIT_SPACING
+		var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING,MAX_ORBIT_SPACING)
+		var orbit = BASE_ORBIT_DISTANCE + (planet_data.order - 1) * orbitDist
 		add_planet(orbit, star_name, planet_data)
 
 func add_planet(orbit: float, star_name: String, planet_data) -> void:
