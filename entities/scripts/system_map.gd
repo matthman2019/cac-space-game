@@ -33,12 +33,12 @@ class System:
 		stars = starList
 
 var UNIVERSE_SEED: int = 67676
-var GALAXY_RADIUS: int = 500
+var GALAXY_RADIUS: int = 5000
 var GALAXY_CENTER: Vector2 = Vector2(0, 0)
-var MIN_SYSTEMS: int = 10
-var MAX_SYSTEMS: int = 15
+var MIN_SYSTEMS: int = 20
+var MAX_SYSTEMS: int = 30
 var MIN_PLANETS: int = 1
-var MAX_PLANETS: int = 6
+var MAX_PLANETS: int = 5
 var MIN_PLANET_SIZE: int = 10
 var MAX_PLANET_SIZE: int = 100
 var MIN_PLANET_TEMP: int = 40
@@ -48,7 +48,7 @@ var systemList: Array = []
 
 func _ready() -> void:
 	GlobalRNG.rng.seed = UNIVERSE_SEED
-
+	
 	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
 		var pos = Vector2(GALAXY_RADIUS * 2, GALAXY_RADIUS * 2)
 		while (pos - GALAXY_CENTER).length() > GALAXY_RADIUS:
@@ -56,7 +56,7 @@ func _ready() -> void:
 				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS),
 				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
 			)
-
+		
 		var planetList: Array = []
 		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
 			planetList.append(PlanetData.new(
@@ -65,11 +65,11 @@ func _ready() -> void:
 				j,
 				[]
 			))
-
+		
 		var starArray = StarGeneration.MakeStar()
 		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
 		systemList.append(system)
-
+		
 		var solarSys = solar_system_scene.instantiate()
 		solarSys.position = pos
 		add_child(solarSys)

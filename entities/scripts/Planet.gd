@@ -8,6 +8,7 @@ var planet_size: int = 0
 var planet_temperature: int = 0
 var planet_order: int = 1
 
+var star_name: String
 var star_pos: Vector2
 var orbit_size: float
 var angle: float = 0.0
@@ -16,8 +17,9 @@ var spinSpeed: float = 0.0
 
 var click: bool = false
 
-func setup(s_pos: Vector2, p_data = null) -> void:
+func setup(s_pos: Vector2, starName: String, p_data = null) -> void:
 	star_pos = s_pos
+	star_name = starName
 	orbit_size = position.distance_to(star_pos)
 	orbitSpeed = (1.0 / sqrt(orbit_size / 100.0)) / 10.0
 	orbitSpeed *= (1 if GlobalRNG.rng.randi_range(0, 1) == 0 else -1)
