@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
-uniform vec3 darkColor = vec3(0, 0, 0);
-uniform vec3 lightColor = vec3(1, 1, 1);
-uniform bool rainbow = false;
+instance uniform vec3 darkColor = vec3(0, 0, 0);
+instance uniform vec3 lightColor = vec3(1, 1, 1);
+instance uniform bool rainbow = false;
 
 // taken from gemini
 // Function to convert RGB (vec3) to HSV (vec3)
