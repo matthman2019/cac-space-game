@@ -13,15 +13,26 @@ class StarData:
 		size = starSize
 
 class PlanetData:
+	var name: String = 'Unknown'
 	var size: int = 0
 	var temperature: int = 0
 	var order: int = 1
 	var resources: Array = []
-	func _init(planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array):
+	var starName: String = 'Sol'
+	var population: int = 0
+	var researchPerSec: int = 0
+	var totalResearch: int = 0
+	func _init(planetName: String, planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array, planetStarName: String,
+	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int):
+		name = planetName
 		size = planetSize
 		temperature = planetTemp
 		order = systemOrder
 		resources = planetResources
+		starName = planetStarName
+		population = planetCurrentPop
+		researchPerSec = planetResearchSec
+		totalResearch = planetTotalResearch
 
 class System:
 	var location: Vector2 = Vector2(0, 0)
@@ -57,16 +68,23 @@ func _ready() -> void:
 				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
 			)
 		
+		var starArray = StarGeneration.MakeStar()
+		var systemStarName: String = starArray[0]
+
 		var planetList: Array = []
 		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
 			planetList.append(PlanetData.new(
+				PlanetNameGenerator.generate(),
 				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
 				GlobalRNG.rng.randi_range(MIN_PLANET_TEMP, MAX_PLANET_TEMP),
 				j,
-				[]
+				[],
+				systemStarName,
+				0,
+				0,
+				0
 			))
 		
-		var starArray = StarGeneration.MakeStar()
 		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
 		systemList.append(system)
 		

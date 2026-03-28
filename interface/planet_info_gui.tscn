@@ -28,11 +28,16 @@ text = "Planet Name"
 
 [node name="Description" type="RichTextLabel" parent="PanelContainer" unique_id=552169741]
 layout_mode = 0
+offset_left = 5.0
 offset_top = 25.0
-offset_right = 200.0
-offset_bottom = 100.0
+offset_right = 205.0
+offset_bottom = 148.0
 theme = ExtResource("2_rgd7b")
 bbcode_enabled = true
-text = "Average Temperature: [color=cyan] 67 K [/color]
+text = "Orbiting Star[color=orange] Star [/color]
 Resources: Wood, Copper, [color=yellow]Tungsten[/color]
-Size: 67 km [color=red] idk I just need to fill up space[/color]"
+Size: [color=teal]67 km [/color]
+Average Temperature: [color=red] 67 K [/color]
+Current Population: [color=blue] 100 people [/color]
+Research Per Second: [color=cyan] 6 [/color]
+Total Research Produced:  [color=cyan]695[/color]"

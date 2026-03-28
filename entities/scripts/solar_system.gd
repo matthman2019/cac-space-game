@@ -48,4 +48,4 @@ func add_planet(orbit: float, star_name: String, planet_data) -> void:
 	var planet = planet_scene.instantiate()
 	planet.position = Vector2(orbit, 0)
 	add_child(planet)
-	planet.setup($Star.position, star_name, planet_data)
+	planet.setup($Star.position, planet_data)

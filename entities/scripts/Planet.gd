@@ -12,14 +12,21 @@ var text5 = load("res://assets/planets/Rocky 15 pix.png")
 var text6 = load("res://assets/planets/Tidaly Locked small.png")
 var text7 = load("res://assets/planets/Yello + blue gass.png")
 
-var TEXTURE_LIST = [text1,text2,text3,text4,text5,text6,text7]
+var TEXTURE_LIST = [text1, text2, text3, text4, text5, text6, text7]
 @onready var Sprite: Sprite2D = $Sprite
 
+# --- PLANET DATA ---
+var planet_name: String = "Unknown"
 var planet_size: int = 0
 var planet_temperature: int = 0
 var planet_order: int = 1
+var planet_star_name: String = ""
+var currentPop: int = 0
+var researchPerSec: int = 0
+var totalResearch: int = 0
+var resources: Array = []
 
-var star_name: String
+# --- ORBIT ---
 var star_pos: Vector2
 var orbit_size: float
 var angle: float = 0.0
@@ -28,9 +35,9 @@ var spinSpeed: float = 0.0
 
 var click: bool = false
 
-func setup(s_pos: Vector2, starName: String, p_data = null) -> void:
+func setup(s_pos: Vector2, p_data = null) -> void:
 	star_pos = s_pos
-	star_name = starName
+
 	orbit_size = position.distance_to(star_pos)
 	orbitSpeed = (1.0 / sqrt(orbit_size / 100.0)) / 10.0
 	orbitSpeed *= (1 if GlobalRNG.rng.randi_range(0, 1) == 0 else -1)
@@ -38,9 +45,15 @@ func setup(s_pos: Vector2, starName: String, p_data = null) -> void:
 	spinSpeed *= (1 if GlobalRNG.rng.randi_range(0, 1) == 0 else -1)
 
 	if p_data != null:
+		planet_name = p_data.name
 		planet_size = p_data.size
 		planet_temperature = p_data.temperature
 		planet_order = p_data.order
+		planet_star_name = p_data.starName
+		currentPop = p_data.population
+		researchPerSec = p_data.researchPerSec
+		totalResearch = p_data.totalResearch
+		resources = p_data.resources
 
 func _process(delta: float) -> void:
 	angle += orbitSpeed * delta
@@ -50,15 +63,18 @@ func _process(delta: float) -> void:
 func _ready():
 	$Area2D.connect("input_event", _on_static_body_2d_input_event)
 	$Area2D.connect("mouse_exited", _on_static_body_2d_mouse_exited)
-	
+
 	Sprite.texture = TEXTURE_LIST.pick_random()
-	
+
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and not click:
+	if event is InputEventMouseButton and not click and event.button_index == MOUSE_BUTTON_LEFT:
 		click = true
 		var camera = get_viewport().get_camera_2d()
 		if camera != null:
 			camera.followed_planet = self
+		var gui = get_tree().get_first_node_in_group("planet_info_gui")
+		if gui != null:
+			gui.fill_planet_data(self)
 
 func _on_static_body_2d_mouse_exited() -> void:
 	click = false

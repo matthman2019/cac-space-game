@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/camera_2d.gd" id="2_0m8qs"]
 [ext_resource type="PackedScene" uid="uid://bhaxw383vgqjt" path="res://entities/scenes/system_map.tscn" id="2_a388t"]
+[ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="3_planet_gui"]
 
 [node name="GAME" type="Node2D" unique_id=2041336532]
 
@@ -9,7 +10,6 @@
 script = ExtResource("2_0m8qs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1103718539]
-follow_viewport_enabled = true
 
 [node name="Gui" type="Control" parent="Camera2D/CanvasLayer" unique_id=1904210949]
 layout_mode = 3
@@ -24,5 +24,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="PlanetInfoGUI" parent="Camera2D/CanvasLayer/Gui" unique_id=119824893 instance=ExtResource("3_planet_gui")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -205.0
+offset_right = -10.0
+offset_bottom = -10.0
 
 [node name="SystemMap" parent="." unique_id=960484211 instance=ExtResource("2_a388t")]
