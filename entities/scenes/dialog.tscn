@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ce7uiaq3jd2ar"]
+
+[ext_resource type="Texture2D" uid="uid://c2csuvu4odupu" path="res://assets/icons/Deo.jpg" id="1_2wko5"]
+[ext_resource type="Script" uid="uid://ch2y0s14g5edb" path="res://entities/scripts/DialogPanel.gd" id="1_6p5l6"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=850405962]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=10209380]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6p5l6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=394815997]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1848366965]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/MarginContainer" unique_id=222444751]
+layout_mode = 2
+texture = ExtResource("1_2wko5")
+expand_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=328662022]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2" unique_id=498744377]
+layout_mode = 2
+bbcode_enabled = true
+text = "Hello! My name is Deo and I am [color=red] NOT LOCKED IN. [/color]"
