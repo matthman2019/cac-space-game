@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qyxxk2whubgx"]
 
 [ext_resource type="Script" uid="uid://4p5u1taskv23" path="res://entities/scripts/Planet.gd" id="1_l11gs"]
-[ext_resource type="Texture2D" uid="uid://wvlnh8ucpqr2" path="res://assets/planets/Yello + blue gass.png" id="2_nktd4"]
+[ext_resource type="PackedScene" uid="uid://c6slyvtgodho1" path="res://entities/scenes/shaded_planet.tscn" id="2_nktd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nktd4"]
 radius = 14.035668
@@ -9,8 +9,8 @@ radius = 14.035668
 [node name="Planet" type="Node2D" unique_id=1341596911]
 script = ExtResource("1_l11gs")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=567864503]
-texture = ExtResource("2_nktd4")
+[node name="ShadedPlanet" parent="." unique_id=556070311 instance=ExtResource("2_nktd4")]
+scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=659469967]
 
