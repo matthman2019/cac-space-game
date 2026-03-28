@@ -45,7 +45,8 @@ func load_system(system) -> void:
 		add_planet(orbit, star_name, planet_data)
 
 func add_planet(orbit: float, star_name: String, planet_data) -> void:
-	var planet = planet_scene.instantiate()
+	var planet : Planet = planet_scene.instantiate()
+	planet.get_node("ShadedPlanet").shuffleColor()
 	planet.position = Vector2(orbit, 0)
 	add_child(planet)
 	planet.setup($Star.position, planet_data)
