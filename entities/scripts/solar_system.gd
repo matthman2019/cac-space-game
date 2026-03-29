@@ -1,4 +1,4 @@
-extends Node2D
+class_name SolarSystem extends Node2D
 
 var planet_scene = preload("res://entities/scenes/planet.tscn")
 
@@ -12,8 +12,8 @@ var MAX_STAR_ROTATION: float = 0.2
 var STAR_BASE_SCALE: float = 1.0
 var STAR_SIZE_SCALE: float = 0.08
 
-var rotation_speed: float
-var star_name: String = ""
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var rotation_speed: float
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var star_name: String = ""
 
 func _process(delta: float) -> void:
 	star_sprite.rotation += rotation_speed * delta
@@ -46,7 +46,19 @@ func load_system(system) -> void:
 
 func add_planet(orbit: float, star_name: String, planet_data) -> void:
 	var planet : Planet = planet_scene.instantiate()
-	planet.get_node("ShadedPlanet").shuffleColor()
 	planet.position = Vector2(orbit, 0)
 	add_child(planet)
 	planet.setup($Star.position, planet_data)
+
+func to_dict():
+	var returnDict = {}
+	for property in get_property_list():
+		if property["hint_string"] == "save":
+			var name = property["name"]
+			returnDict[name] = self.get(name)
+	var planetList = []
+	for child in get_children():
+		if child is Planet:
+			planetList.append(child.to_dict())
+	returnDict["planetList"] = planetList
+	return returnDict

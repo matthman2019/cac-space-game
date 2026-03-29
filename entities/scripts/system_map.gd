@@ -22,8 +22,13 @@ class PlanetData:
 	var population: int = 0
 	var researchPerSec: int = 0
 	var totalResearch: int = 0
+	var darkColor : Vector3 = Vector3.ZERO
+	var lightColor : Vector3 = Vector3.ONE
+	var orbit_size : float = 10.0
+	var orbitSpeed = (1.0 / sqrt(orbit_size / 100.0)) / 10.0
+	var spinSpeed : float = 1
 	func _init(planetName: String, planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array, planetStarName: String,
-	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int):
+	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3):
 		name = planetName
 		size = planetSize
 		temperature = planetTemp
@@ -33,6 +38,8 @@ class PlanetData:
 		population = planetCurrentPop
 		researchPerSec = planetResearchSec
 		totalResearch = planetTotalResearch
+		darkColor = darkColorVec
+		lightColor = lightColorVec
 
 class System:
 	var location: Vector2 = Vector2(0, 0)
@@ -73,6 +80,8 @@ func _ready() -> void:
 
 		var planetList: Array = []
 		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
+			var darkColor : Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
+			var lightColor : Vector3 = Vector3(1, 1, 1) - darkColor
 			planetList.append(PlanetData.new(
 				PlanetNameGenerator.generate(),
 				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
@@ -82,7 +91,9 @@ func _ready() -> void:
 				systemStarName,
 				0,
 				0,
-				0
+				0,
+				darkColor,
+				lightColor
 			))
 		
 		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
@@ -92,3 +103,25 @@ func _ready() -> void:
 		solarSys.position = pos
 		add_child(solarSys)
 		solarSys.load_system(system)
+	
+	await get_tree().create_timer(1.0).timeout
+	save()
+
+func to_dict():
+	var returnList = []
+	for child in get_children():
+		if child is SolarSystem:
+			returnList.append(child.to_dict())
+	return returnList
+
+func save():
+	var saveData = JSON.stringify(to_dict(), "	")
+	# change this to user:// when we export
+	var saveFile = FileAccess.open("res://testing/saves/galaxySave.txt", FileAccess.WRITE)
+	if saveFile:
+		saveFile.store_string(saveData)
+		saveFile.close()
+		print("Written save data successfully!")
+	else:
+		push_error("Hey we weren't able to open / write the save file!")
+	
