@@ -42,6 +42,7 @@ static func generate() -> String:
 	var suffix = suffixes[GlobalRNG.rng.randi_range(0, suffixes.size() - 1)]
 	var modifier = modifiers[GlobalRNG.rng.randi_range(0, modifiers.size() - 1)]
 
+	@warning_ignore("shadowed_variable_base_class")
 	var name = prefix + mid + suffix
 
 	# Capitalize first letter (already is, but safe)

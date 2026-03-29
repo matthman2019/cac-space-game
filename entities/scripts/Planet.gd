@@ -8,22 +8,24 @@ var TEXTURE_LIST = []
 @onready var Sprite: Sprite2D = $ShadedPlanet
 
 # --- PLANET DATA ---
-var planet_name: String = "Unknown"
-var planet_size: int = 0
-var planet_temperature: int = 0
-var planet_order: int = 1
-var planet_star_name: String = ""
-var currentPop: int = 0
-var researchPerSec: int = 0
-var totalResearch: int = 0
-var resources: Array = []
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_name: String = "Unknown"
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_size: int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_temperature: int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_order: int = 1
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_star_name: String = ""
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var currentPop: int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var researchPerSec: int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var totalResearch: int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var resources: Array = []
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var darkColor: Vector3 = Vector3.ZERO
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var lightColor: Vector3 = Vector3.ONE
 
 # --- ORBIT ---
-var star_pos: Vector2
-var orbit_size: float
-var angle: float = 0.0
-var orbitSpeed: float = 1.0
-var spinSpeed: float = 0.0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var star_pos: Vector2
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var orbit_size: float
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var angle: float = 0.0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var orbitSpeed: float = 1.0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var spinSpeed: float = 0.0
 
 var click: bool = false
 
@@ -46,7 +48,10 @@ func setup(s_pos: Vector2, p_data = null) -> void:
 		researchPerSec = p_data.researchPerSec
 		totalResearch = p_data.totalResearch
 		resources = p_data.resources
-
+		darkColor = p_data.darkColor
+		lightColor = p_data.lightColor
+		Sprite.setColors(darkColor, lightColor) # this must be run on setup()
+	
 func _process(delta: float) -> void:
 	angle += orbitSpeed * delta
 	position = star_pos + Vector2(cos(angle) * orbit_size, sin(angle) * orbit_size)
@@ -78,3 +83,11 @@ func load_planet_textures():
 		if file.ends_with(".import"):
 			continue
 		TEXTURE_LIST.append(load(textureLocation.path_join(file)))
+
+func to_dict():
+	var returnDict = {}
+	for property in get_property_list():
+		if property["hint_string"] == "save":
+			var name = property["name"]
+			returnDict[name] = self.get(name)
+	return returnDict
