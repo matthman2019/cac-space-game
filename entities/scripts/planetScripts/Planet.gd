@@ -4,7 +4,6 @@ extends Node2D
 var MIN_SPIN_SPEED: float = 0.3
 var MAX_SPIN_SPEED: float = 1.0
 
-var textureList = []
 @onready var sprite: Sprite2D = $ShadedPlanet
 @onready var gui = get_tree().get_first_node_in_group("planet_info_gui")
 
@@ -20,6 +19,7 @@ var textureList = []
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var resources: Array = []
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var darkColor: Vector3 = Vector3.ZERO
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var lightColor: Vector3 = Vector3.ONE
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var textureID : int = 0
 
 # --- ORBIT ---
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var starPos: Vector2
@@ -54,6 +54,7 @@ func setup(sPos: Vector2, pData = null) -> void:
 		darkColor = pData.darkColor
 		lightColor = pData.lightColor
 		sprite.setColors(darkColor, lightColor) # this must be run on setup()
+		textureID = pData.textureID
 
 func _process(delta: float) -> void:
 	angle += orbitSpeed * delta
@@ -72,8 +73,8 @@ func _process(delta: float) -> void:
 func _ready():
 	$Area2D.connect("input_event", _onStaticBody2dInputEvent)
 	$Area2D.connect("mouse_exited", _onStaticBody2dMouseExited)
-	loadPlanetTextures()
-	sprite.texture = textureList.pick_random()
+	sprite.texture = PlanetTextureLoader.textureList[textureID]
+	$ShadedPlanet.setColors(darkColor, lightColor)
 
 func _onStaticBody2dInputEvent(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and not click and event.button_index == MOUSE_BUTTON_LEFT:
@@ -95,18 +96,16 @@ func hideGui():
 	if gui != null:
 		gui.visible = false
 
-func loadPlanetTextures():
-	var textureLocation = "res://assets/grayscalePlanets/"
-	var fileAccess = DirAccess.open(textureLocation)
-	for file in fileAccess.get_files():
-		if file.ends_with(".import"):
-			continue
-		textureList.append(load(textureLocation.path_join(file)))
+
 
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():
-		if property["hint_string"] == "save":
+		if property["hint_string"] == "save" or property["name"] == "position":
 			var name = property["name"]
-			returnDict[name] = self.get(name)
+			returnDict[name] = var_to_str(self.get(name))
 	return returnDict
+
+func fromDict(dict : Dictionary):
+	for key in dict.keys():
+		set(key, str_to_var(dict[key]))

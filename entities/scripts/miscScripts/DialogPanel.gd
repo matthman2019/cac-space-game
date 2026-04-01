@@ -68,3 +68,4 @@ func _ready():
 	await dialog(deo, "No it's not. Nathan agrees")
 	await dialog(nathan, "Even I'm locked in, Deo")
 	await dialog(deo, "Shoot")
+	visible = false

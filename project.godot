@@ -18,6 +18,7 @@ config/icon="res://assets/icons/icon.svg"
 [autoload]
 
 GlobalRNG="*res://entities/scripts/miscScripts/GlobalRNG.gd"
+PlanetTextureLoader="*uid://pi6ch0csxyx7"
 
 [display]
 

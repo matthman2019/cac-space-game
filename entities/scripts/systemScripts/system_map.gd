@@ -2,6 +2,7 @@ class_name SystemMap
 extends Node2D
 
 var solarSystemScene = preload("res://entities/scenes/solarSystem.tscn")
+var saveLocation : String = "res://testing/saves/galaxySave.txt"
 
 class StarData:
 	var name: String = "Star"
@@ -27,8 +28,10 @@ class PlanetData:
 	var orbitSize : float = 10.0
 	var orbitSpeed = (1.0 / sqrt(orbitSize / 100.0)) / 10.0
 	var spinSpeed : float = 1
+	var textureID : int = 0
 	func _init(planetName: String, planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array, planetStarName: String,
-	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3):
+	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3,
+	planetTextureID : int):
 		name = planetName
 		size = planetSize
 		temperature = planetTemp
@@ -40,6 +43,7 @@ class PlanetData:
 		totalResearch = planetTotalResearch
 		darkColor = darkColorVec
 		lightColor = lightColorVec
+		textureID = planetTextureID
 
 class System:
 	var location: Vector2 = Vector2(0, 0)
@@ -65,6 +69,9 @@ var MAX_PLANET_TEMP: int = 1000
 var systemList: Array = []
 
 func _ready() -> void:
+	loadSave()
+
+func generateUniverse():
 	GlobalRNG.rng.seed = UNIVERSE_SEED
 
 	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
@@ -79,6 +86,7 @@ func _ready() -> void:
 		var systemStarName: String = starArray[0]
 
 		var planetList: Array = []
+		var planetTextureAmount = len(PlanetTextureLoader.textureList) - 1
 		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
 			var darkColor : Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
 			var lightColor : Vector3 = Vector3(1, 1, 1) - darkColor
@@ -93,7 +101,8 @@ func _ready() -> void:
 				0,
 				0,
 				darkColor,
-				lightColor
+				lightColor,
+				GlobalRNG.rng.randi_range(0, planetTextureAmount)
 			))
 
 		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
@@ -117,10 +126,32 @@ func toDict():
 func save():
 	var saveData = JSON.stringify(toDict(), "	")
 	# change this to user:// when we export
-	var saveFile = FileAccess.open("res://testing/saves/galaxySave.txt", FileAccess.WRITE)
+	var saveFile = FileAccess.open(saveLocation, FileAccess.WRITE)
 	if saveFile:
 		saveFile.store_string(saveData)
 		saveFile.close()
 		print("Written save data successfully!")
 	else:
 		push_error("Hey we weren't able to open / write the save file!")
+
+func loadSave():
+	var saveString = FileAccess.get_file_as_string(saveLocation)
+	if saveString.is_empty():
+		push_error("Hey we weren't able to open / write the save file!")
+		return
+	
+	var saveDict = JSON.parse_string(saveString)
+	if not saveDict:
+		push_error("Failed to parse save file!")
+	
+	for system in saveDict:
+		var solarSys = solarSystemScene.instantiate()
+		add_child(solarSys)
+		solarSys.fromDict(system)
+	
+# autosave on close
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print("Quitting...")
+		await save()
+		get_tree().quit()

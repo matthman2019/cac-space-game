@@ -51,15 +51,35 @@ func addPlanet(orbit: float, starName: String, planetData) -> void:
 	planet.add_to_group("planets")
 	planet.setup($Star.position, planetData)
 
+func addPlanetFromDict(dict : Dictionary):
+	var planet : Planet = planetScene.instantiate()
+	planet.fromDict(dict)
+	add_child(planet)
+	planet.add_to_group("planets")
+	
+	
+
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():
-		if property["hint_string"] == "save":
+		if property["hint_string"] == "save" or property["name"] == "position":
+			@warning_ignore("shadowed_variable_base_class")
 			var name = property["name"]
-			returnDict[name] = self.get(name)
+			returnDict[name] = var_to_str(self.get(name))
 	var planetList = []
 	for child in get_children():
 		if child is Planet:
 			planetList.append(child.toDict())
 	returnDict["planetList"] = planetList
 	return returnDict
+
+func fromDict(data : Dictionary):
+	for key in data.keys():
+		if key == "planetList": continue
+		set(key, str_to_var(data[key]))
+	position = str_to_var(data["position"])
+	
+	for planetDict in data["planetList"]:
+		addPlanetFromDict(planetDict)
+		
+	
