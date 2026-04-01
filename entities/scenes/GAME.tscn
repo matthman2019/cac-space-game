@@ -16,10 +16,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -800.0
-offset_top = -450.0
-offset_right = -800.0
-offset_bottom = -450.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -32,11 +28,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -205.0
-offset_right = -10.0
-offset_bottom = -10.0
+offset_left = -1494.0
+offset_top = -825.0
+offset_right = -1298.0
+offset_bottom = -729.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer/Gui" unique_id=527524328]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -181.0
+offset_bottom = 163.0
+grow_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/CanvasLayer/Gui/PanelContainer" unique_id=556956997]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 33
+bbcode_enabled = true
+text = "Total Research:
+[color=teal]10[/color]"
 
 [node name="SystemMap" parent="." unique_id=960484211 instance=ExtResource("2_a388t")]

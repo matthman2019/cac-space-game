@@ -14,25 +14,31 @@ script = ExtResource("1_lg4m2")
 
 [node name="PanelContainer" type="Panel" parent="." unique_id=1134137268]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.5050001
+anchor_bottom = 2.3600001
+offset_right = -3.0517578e-05
+offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Name" type="RichTextLabel" parent="PanelContainer" unique_id=892255587]
 layout_mode = 0
-offset_right = 200.0
-offset_bottom = 25.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 310.0
+offset_bottom = 49.0
+theme_override_font_sizes/normal_font_size = 26
 text = "Planet Name"
 
 [node name="Description" type="RichTextLabel" parent="PanelContainer" unique_id=552169741]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 25.0
-offset_right = 205.0
-offset_bottom = 148.0
+offset_left = 7.0
+offset_top = 47.0
+offset_right = 296.0
+offset_bottom = 212.0
 theme = ExtResource("2_rgd7b")
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "Orbiting Star[color=orange] Star [/color]
 Resources: Wood, Copper, [color=yellow]Tungsten[/color]
