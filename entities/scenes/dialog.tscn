@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce7uiaq3jd2ar"]
 
 [ext_resource type="Texture2D" uid="uid://c2csuvu4odupu" path="res://assets/icons/Deo.jpg" id="1_2wko5"]
-[ext_resource type="Script" uid="uid://ch2y0s14g5edb" path="res://entities/scripts/DialogPanel.gd" id="1_6p5l6"]
+[ext_resource type="Script" uid="uid://ch2y0s14g5edb" path="res://entities/scripts/miscScripts/DialogPanel.gd" id="1_6p5l6"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=850405962]
 

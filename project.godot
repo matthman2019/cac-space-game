@@ -17,7 +17,7 @@ config/icon="res://assets/icons/icon.svg"
 
 [autoload]
 
-GlobalRNG="*uid://dyqwlf0xbqch7"
+GlobalRNG="*res://entities/scripts/miscScripts/GlobalRNG.gd"
 
 [display]
 
