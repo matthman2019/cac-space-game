@@ -1,7 +1,7 @@
 class_name SystemMap
 extends Node2D
 
-var solar_system_scene = preload("res://entities/scenes/solarSystem.tscn")
+var solarSystemScene = preload("res://entities/scenes/solarSystem.tscn")
 
 class StarData:
 	var name: String = "Star"
@@ -24,8 +24,8 @@ class PlanetData:
 	var totalResearch: int = 0
 	var darkColor : Vector3 = Vector3.ZERO
 	var lightColor : Vector3 = Vector3.ONE
-	var orbit_size : float = 10.0
-	var orbitSpeed = (1.0 / sqrt(orbit_size / 100.0)) / 10.0
+	var orbitSize : float = 10.0
+	var orbitSpeed = (1.0 / sqrt(orbitSize / 100.0)) / 10.0
 	var spinSpeed : float = 1
 	func _init(planetName: String, planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array, planetStarName: String,
 	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3):
@@ -66,7 +66,7 @@ var systemList: Array = []
 
 func _ready() -> void:
 	GlobalRNG.rng.seed = UNIVERSE_SEED
-	
+
 	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
 		var pos = Vector2(GALAXY_RADIUS * 2, GALAXY_RADIUS * 2)
 		while (pos - GALAXY_CENTER).length() > GALAXY_RADIUS:
@@ -74,8 +74,8 @@ func _ready() -> void:
 				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS),
 				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
 			)
-		
-		var starArray = StarGeneration.MakeStar()
+
+		var starArray = StarGeneration.makeStar()
 		var systemStarName: String = starArray[0]
 
 		var planetList: Array = []
@@ -95,27 +95,27 @@ func _ready() -> void:
 				darkColor,
 				lightColor
 			))
-		
+
 		var system = System.new(pos, planetList, [StarData.new(starArray[0], starArray[1], starArray[2])])
 		systemList.append(system)
-		
-		var solarSys = solar_system_scene.instantiate()
+
+		var solarSys = solarSystemScene.instantiate()
 		solarSys.position = pos
 		add_child(solarSys)
-		solarSys.load_system(system)
-	
+		solarSys.loadSystem(system)
+
 	await get_tree().create_timer(1.0).timeout
 	save()
 
-func to_dict():
+func toDict():
 	var returnList = []
 	for child in get_children():
 		if child is SolarSystem:
-			returnList.append(child.to_dict())
+			returnList.append(child.toDict())
 	return returnList
 
 func save():
-	var saveData = JSON.stringify(to_dict(), "	")
+	var saveData = JSON.stringify(toDict(), "	")
 	# change this to user:// when we export
 	var saveFile = FileAccess.open("res://testing/saves/galaxySave.txt", FileAccess.WRITE)
 	if saveFile:
@@ -124,4 +124,3 @@ func save():
 		print("Written save data successfully!")
 	else:
 		push_error("Hey we weren't able to open / write the save file!")
-	

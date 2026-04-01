@@ -1,8 +1,8 @@
 class_name SolarSystem extends Node2D
 
-var planet_scene = preload("res://entities/scenes/planet.tscn")
+var planetScene = preload("res://entities/scenes/planet.tscn")
 
-@onready var star_sprite = $Star/Sprite2D
+@onready var starSprite = $Star/Sprite2D
 
 var BASE_ORBIT_DISTANCE: float = 100.0
 var MIN_ORBIT_SPACING: float = 160.0
@@ -12,45 +12,46 @@ var MAX_STAR_ROTATION: float = 0.2
 var STAR_BASE_SCALE: float = 1.0
 var STAR_SIZE_SCALE: float = 0.08
 
-@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var rotation_speed: float
-@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var star_name: String = ""
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var rotationSpeed: float
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var starName: String = ""
 
 func _process(delta: float) -> void:
-	star_sprite.rotation += rotation_speed * delta
+	starSprite.rotation += rotationSpeed * delta
 
-func load_system(system) -> void:
+func loadSystem(system) -> void:
 	for child in get_children():
 		if child is Planet:
 			child.queue_free()
 
-	rotation_speed = GlobalRNG.rng.randf_range(MIN_STAR_ROTATION, MAX_STAR_ROTATION)
+	rotationSpeed = GlobalRNG.rng.randf_range(MIN_STAR_ROTATION, MAX_STAR_ROTATION)
 	if GlobalRNG.rng.randi_range(0, 1) == 0:
-		rotation_speed *= -1.0
+		rotationSpeed *= -1.0
 
 	if system == null:
 		for i in range(3):
-			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING,MAX_ORBIT_SPACING)
-			add_planet(BASE_ORBIT_DISTANCE + i * orbitDist,"Fallback Star", null)
+			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
+			addPlanet(BASE_ORBIT_DISTANCE + i * orbitDist, "Fallback Star", null)
 		return
 
-	star_name = system.stars[0].name
-	print("generated star "+star_name)
-	star_sprite.modulate = system.stars[0].color
+	starName = system.stars[0].name
+	print("generated star " + starName)
+	starSprite.modulate = system.stars[0].color
 	var s = STAR_BASE_SCALE + system.stars[0].size * STAR_SIZE_SCALE
-	star_sprite.scale = Vector2(s, s)
+	starSprite.scale = Vector2(s, s)
 
-	for planet_data in system.planets:
-		var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING,MAX_ORBIT_SPACING)
-		var orbit = BASE_ORBIT_DISTANCE + (planet_data.order - 1) * orbitDist
-		add_planet(orbit, star_name, planet_data)
+	for planetData in system.planets:
+		var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
+		var orbit = BASE_ORBIT_DISTANCE + (planetData.order - 1) * orbitDist
+		addPlanet(orbit, starName, planetData)
 
-func add_planet(orbit: float, star_name: String, planet_data) -> void:
-	var planet : Planet = planet_scene.instantiate()
+func addPlanet(orbit: float, starName: String, planetData) -> void:
+	var planet : Planet = planetScene.instantiate()
 	planet.position = Vector2(orbit, 0)
 	add_child(planet)
-	planet.setup($Star.position, planet_data)
+	planet.add_to_group("planets")
+	planet.setup($Star.position, planetData)
 
-func to_dict():
+func toDict():
 	var returnDict = {}
 	for property in get_property_list():
 		if property["hint_string"] == "save":
@@ -59,6 +60,6 @@ func to_dict():
 	var planetList = []
 	for child in get_children():
 		if child is Planet:
-			planetList.append(child.to_dict())
+			planetList.append(child.toDict())
 	returnDict["planetList"] = planetList
 	return returnDict

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/miscScripts/camera_2d.gd" id="2_0m8qs"]
 [ext_resource type="PackedScene" uid="uid://bhaxw383vgqjt" path="res://entities/scenes/system_map.tscn" id="2_a388t"]
+[ext_resource type="PackedScene" uid="uid://nqi2ykyfpor3" path="res://interface/researchCount.tscn" id="3_g8udf"]
 [ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="3_planet_gui"]
 
 [node name="GAME" type="Node2D" unique_id=2041336532]
@@ -35,20 +36,7 @@ offset_bottom = -729.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D/CanvasLayer/Gui" unique_id=527524328]
+[node name="Control" parent="Camera2D/CanvasLayer/Gui" unique_id=178861494 instance=ExtResource("3_g8udf")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -181.0
-offset_bottom = 163.0
-grow_horizontal = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/CanvasLayer/Gui/PanelContainer" unique_id=556956997]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 33
-bbcode_enabled = true
-text = "Total Research:
-[color=teal]10[/color]"
 
 [node name="SystemMap" parent="." unique_id=960484211 instance=ExtResource("2_a388t")]

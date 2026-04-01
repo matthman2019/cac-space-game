@@ -1,28 +1,35 @@
 class_name PlanetInfoGUI extends Control
 
-@onready var NameLabel: RichTextLabel = $PanelContainer/Name
-@onready var DescriptionLabel: RichTextLabel = $PanelContainer/Description
+@onready var nameLabel: RichTextLabel = $PanelContainer/Name
+@onready var descriptionLabel: RichTextLabel = $PanelContainer/Description
+
+var currentPlanet: Planet = null
 
 func _ready():
 	add_to_group("planet_info_gui")
 	visible = false
 
-func fill_planet_data(planet: Planet):
-	NameLabel.text = planet.planet_name
+func _process(_delta: float) -> void:
+	if currentPlanet != null and visible:
+		fillPlanetData(currentPlanet)
 
-	var resource_text: String
+func fillPlanetData(planet: Planet):
+	currentPlanet = planet
+	nameLabel.text = planet.planetName
+
+	var resourceText: String
 	if planet.resources.is_empty():
-		resource_text = "[color=gray]None surveyed[/color]"
+		resourceText = "[color=gray]None surveyed[/color]"
 	else:
-		resource_text = ", ".join(planet.resources)
+		resourceText = ", ".join(planet.resources)
 
-	DescriptionLabel.text = (
-		"Orbiting [color=orange]%s[/color]\n" % planet.planet_star_name +
-		"Size: [color=teal]%d km[/color]\n" % planet.planet_size +
-		"Temperature: [color=red]%d K[/color]\n" % planet.planet_temperature +
-		"Resources: %s\n" % resource_text +
+	descriptionLabel.text = (
+		"Orbiting [color=orange]%s[/color]\n" % planet.planetStarName +
+		"Size: [color=teal]%d km[/color]\n" % planet.planetSize +
+		"Temperature: [color=red]%d K[/color]\n" % planet.planetTemperature +
+		"Resources: %s\n" % resourceText +
 		"Population: [color=cyan]%d[/color]\n" % planet.currentPop +
-		"Research/sec: [color=cyan]%d[/color]\n" % planet.researchPerSec +
+		"Research/min: [color=cyan]%d[/color]\n" % (planet.researchPerSec * 60) +
 		"Total Research: [color=cyan]%d[/color]" % planet.totalResearch
 	)
 

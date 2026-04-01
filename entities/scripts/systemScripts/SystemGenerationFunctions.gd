@@ -13,7 +13,7 @@ enum StarSize {
 	M = 6,
 }
 
-static func weighted_randint(args : Array[Array]) -> int:
+static func weightedRandint(args : Array[Array]) -> int:
 	var probabilitySum = 0.0
 	for possibilityTuple in args:
 		probabilitySum += possibilityTuple[1]
@@ -31,41 +31,41 @@ static func weighted_randint(args : Array[Array]) -> int:
 			continue
 	return 0
 
-static func chance_boolean(probabilityTrue: float = 0.5) -> bool:
+static func chanceBoolean(probabilityTrue: float = 0.5) -> bool:
 	return GlobalRNG.rng.randf() < probabilityTrue
 
-static func generate_random_name():
+static func generateRandomName():
 	var finalName = ''
-	var wordCount = weighted_randint([[1, 0.7], [2, 0.25], [3, 0.05]])
+	var wordCount = weightedRandint([[1, 0.7], [2, 0.25], [3, 0.05]])
 
 	for wordNumber in range(wordCount):
-		var syllableCount = weighted_randint([[1, 0.1], [2, 0.3], [3, 0.4], [4, 0.2]])
+		var syllableCount = weightedRandint([[1, 0.1], [2, 0.3], [3, 0.4], [4, 0.2]])
 
 		for syllable in range(syllableCount):
-			if chance_boolean(0.8):
+			if chanceBoolean(0.8):
 				finalName += consonants[GlobalRNG.rng.randi_range(0, consonants.size() - 1)]
 
-			if chance_boolean(0.2):
+			if chanceBoolean(0.2):
 				finalName += vowels[GlobalRNG.rng.randi_range(0, vowels.size() - 1)]
 				finalName += vowels[GlobalRNG.rng.randi_range(0, vowels.size() - 1)]
 			else:
 				finalName += vowels[GlobalRNG.rng.randi_range(0, vowels.size() - 1)]
 
-			for i in range(weighted_randint([[0, 0.8], [1, 0.2]])):
+			for i in range(weightedRandint([[0, 0.8], [1, 0.2]])):
 				finalName += consonants[GlobalRNG.rng.randi_range(0, consonants.size() - 1)]
 
 		if wordNumber != wordCount - 1:
 			finalName += ' '
 
-	if chance_boolean(0.2):
+	if chanceBoolean(0.2):
 		finalName += ' - {0}'.format([GlobalRNG.rng.randi_range(0, 15)])
 
 	if len(finalName) <= 2:
-		return generate_random_name()
+		return generateRandomName()
 	else:
 		return finalName
 
-static func bv2rgb(bv):
+static func bv2Rgb(bv):
 	if bv < -0.40: bv = -0.40
 	if bv > 2.00: bv = 2.00
 
@@ -112,32 +112,32 @@ static func bv2rgb(bv):
 static func uniform(from: float, to: float):
 	return GlobalRNG.rng.randf_range(from, to)
 
-static func MakeStar():
-	var starName = generate_random_name()
-	var size = weighted_randint([[0, 0.001], [1, 0.05], [2, 0.149], [3, 0.1], [4, 0.15], [5, 0.25], [6, 0.3]])
+static func makeStar():
+	var starName = generateRandomName()
+	var size = weightedRandint([[0, 0.001], [1, 0.05], [2, 0.149], [3, 0.1], [4, 0.15], [5, 0.25], [6, 0.3]])
 	var starColor = Color.WHITE
 	var starSize = 1.0
 	match size:
 		StarSize.O:
-			starColor = bv2rgb(uniform(-0.4, -0.2))
+			starColor = bv2Rgb(uniform(-0.4, -0.2))
 			starSize = uniform(6.6, 10.0)
 		StarSize.B:
-			starColor = bv2rgb(uniform(-0.2, 0.0))
+			starColor = bv2Rgb(uniform(-0.2, 0.0))
 			starSize = uniform(1.8, 6.6)
 		StarSize.A:
-			starColor = bv2rgb(uniform(0.0, 0.3))
+			starColor = bv2Rgb(uniform(0.0, 0.3))
 			starSize = uniform(1.4, 1.8)
 		StarSize.F:
-			starColor = bv2rgb(uniform(0.3, 0.6))
+			starColor = bv2Rgb(uniform(0.3, 0.6))
 			starSize = uniform(1.15, 1.4)
 		StarSize.G:
-			starColor = bv2rgb(uniform(0.6, 0.9))
+			starColor = bv2Rgb(uniform(0.6, 0.9))
 			starSize = uniform(0.96, 1.15)
 		StarSize.K:
-			starColor = bv2rgb(uniform(0.9, 1.4))
+			starColor = bv2Rgb(uniform(0.9, 1.4))
 			starSize = uniform(0.7, 0.96)
 		StarSize.M:
-			starColor = bv2rgb(uniform(1.4, 2.0))
+			starColor = bv2Rgb(uniform(1.4, 2.0))
 			starSize = uniform(0.3, 0.96)
 		_:
 			push_error("Bad harvardSpectral! Make sure it is of type StarSize!")
