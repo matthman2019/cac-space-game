@@ -40,5 +40,8 @@ func _input(event):
 		
 	if event is InputEventMouseMotion and dragging:
 		has_dragged = true
+		if followed_planet != null:
+			followed_planet.hide_gui()
 		followed_planet = null
 		position -= event.relative / zoom.x
+		

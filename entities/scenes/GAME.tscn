@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx3jiaxn7me3s"]
 
-[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/camera_2d.gd" id="2_0m8qs"]
+[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/miscScripts/camera_2d.gd" id="2_0m8qs"]
 [ext_resource type="PackedScene" uid="uid://bhaxw383vgqjt" path="res://entities/scenes/system_map.tscn" id="2_a388t"]
 [ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="3_planet_gui"]
 

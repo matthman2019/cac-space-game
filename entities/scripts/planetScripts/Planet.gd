@@ -6,6 +6,7 @@ var MAX_SPIN_SPEED: float = 1.0
 
 var TEXTURE_LIST = []
 @onready var Sprite: Sprite2D = $ShadedPlanet
+@onready var gui = get_tree().get_first_node_in_group("planet_info_gui")
 
 # --- PLANET DATA ---
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planet_name: String = "Unknown"
@@ -69,12 +70,15 @@ func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx
 		var camera = get_viewport().get_camera_2d()
 		if camera != null:
 			camera.followed_planet = self
-		var gui = get_tree().get_first_node_in_group("planet_info_gui")
 		if gui != null:
 			gui.fill_planet_data(self)
 
 func _on_static_body_2d_mouse_exited() -> void:
 	click = false
+
+func hide_gui():
+	if gui != null:
+			gui.visible = false
 
 func load_planet_textures():
 	var textureLocation = "res://assets/grayscalePlanets/"

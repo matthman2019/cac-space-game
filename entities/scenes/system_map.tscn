@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhaxw383vgqjt"]
 
-[ext_resource type="Script" uid="uid://3mmri1jk5xg6" path="res://entities/scripts/system_map.gd" id="1_6qwt5"]
-[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/camera_2d.gd" id="1_grnbl"]
+[ext_resource type="Script" uid="uid://3mmri1jk5xg6" path="res://entities/scripts/systemScripts/system_map.gd" id="1_6qwt5"]
+[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/miscScripts/camera_2d.gd" id="1_grnbl"]
 
 [node name="SystemMap" type="Node2D" unique_id=960484211]
 script = ExtResource("1_6qwt5")
