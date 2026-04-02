@@ -15,13 +15,16 @@ var textDispId : int = 0
 
 signal keyPressed
 signal keyReleased
+var spaceDown : bool = false
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.as_text() == "Space":
 		if event.is_pressed():
 			keyPressed.emit()
+			spaceDown = true
 		else:
 			keyReleased.emit()
+			spaceDown = false
 
 func displayTextWithKey(text : String, instantText : bool = false):
 	await dispText(text, instantText)
@@ -36,14 +39,19 @@ func dispText(dispText : String, instantText : bool = false):
 		return
 
 	textbox.text = ""
-	for character in dispText:
+	var index = 0
+	while index < len(dispText):
+		var character = dispText[index]
 		if character == "[":
 			bracketMode = true
 		if character == "⏸":
 			await get_tree().create_timer(pauseDuration).timeout
 			continue
-		if not bracketMode:
+		if (not bracketMode) and (not spaceDown):
 			await get_tree().process_frame
+		if spaceDown:
+			if index % 3 == 0:
+				await get_tree().process_frame
 		if character == "]":
 			bracketMode = false
 
@@ -51,9 +59,11 @@ func dispText(dispText : String, instantText : bool = false):
 		if textDispId != localTextDispId:
 			break
 		textbox.text += character
+		
 
 		if character == ",":
 			await get_tree().create_timer(shortPauseDuration).timeout
+		index += 1
 
 	bracketMode = false
 
