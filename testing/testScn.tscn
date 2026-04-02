@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbnowu1ka1x22"]
 
 [ext_resource type="Texture2D" uid="uid://cg5elh88kj4uf" path="res://assets/icons/Boi3.png" id="1_oxq81"]
-[ext_resource type="Texture2D" uid="uid://bja7bry6kxtam" path="res://assets/icons/Plub.png" id="2_r1j2m"]
+[ext_resource type="Texture2D" uid="uid://bja7bry6kxtam" path="res://assets/icons/Clunk.png" id="2_r1j2m"]
 
 [node name="Node2D" type="Node2D" unique_id=1941685348]
 
