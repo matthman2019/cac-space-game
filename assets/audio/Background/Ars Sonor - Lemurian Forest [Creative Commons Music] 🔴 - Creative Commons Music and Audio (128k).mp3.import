@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyeu48clt1crx"
+path="res://.godot/imported/Ars Sonor - Lemurian Forest [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3-51163fc8b55a2a44fc9b63d72d858af7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Background/Ars Sonor - Lemurian Forest [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3"
+dest_files=["res://.godot/imported/Ars Sonor - Lemurian Forest [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3-51163fc8b55a2a44fc9b63d72d858af7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

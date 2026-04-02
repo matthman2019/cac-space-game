@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nqi2ykyfpor3" path="res://interface/researchCount.tscn" id="3_g8udf"]
 [ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="3_planet_gui"]
 [ext_resource type="PackedScene" uid="uid://ce7uiaq3jd2ar" path="res://entities/scenes/dialog.tscn" id="5_ohjsi"]
+[ext_resource type="Script" uid="uid://b5mbydv4nhq3n" path="res://entities/scripts/musicPlayer.gd" id="6_jsh2r"]
 
 [node name="GAME" type="Node2D" unique_id=2041336532]
 
@@ -43,5 +44,8 @@ layout_mode = 1
 [node name="SystemMap" parent="." unique_id=960484211 instance=ExtResource("2_a388t")]
 
 [node name="CanvasLayer" parent="." unique_id=850405962 instance=ExtResource("5_ohjsi")]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1290527024]
+script = ExtResource("6_jsh2r")
 
 [editable path="CanvasLayer"]

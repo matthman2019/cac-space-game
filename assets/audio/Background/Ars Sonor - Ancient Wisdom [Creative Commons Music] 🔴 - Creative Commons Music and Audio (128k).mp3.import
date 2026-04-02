@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqrvxa7xcfv6n"
+path="res://.godot/imported/Ars Sonor - Ancient Wisdom [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3-826049193262d6f0ece4f911969a5aaa.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Background/Ars Sonor - Ancient Wisdom [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3"
+dest_files=["res://.godot/imported/Ars Sonor - Ancient Wisdom [Creative Commons Music] 🔴 - Creative Commons Music and Audio (128k).mp3-826049193262d6f0ece4f911969a5aaa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
