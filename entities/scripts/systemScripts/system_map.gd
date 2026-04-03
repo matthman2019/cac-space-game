@@ -69,7 +69,12 @@ var MAX_PLANET_TEMP: int = 1000
 var systemList: Array = []
 
 func _ready() -> void:
-	loadSave()
+	# placeholder for when the user will actually input something
+	const savePath := "user://saves/PLACEHOLDER"
+	if savePath == null:
+		generateUniverse()
+	else:
+		loadSave(savePath)
 
 func generateUniverse():
 	GlobalRNG.rng.seed = UNIVERSE_SEED
@@ -134,15 +139,17 @@ func save():
 	else:
 		push_error("Hey we weren't able to open / write the save file!")
 
-func loadSave():
+func loadSave(newSaveLoc: String):
+	assert(newSaveLoc != null)
+	saveLocation = newSaveLoc
 	var saveString = FileAccess.get_file_as_string(saveLocation)
 	if saveString.is_empty():
-		push_error("Hey we weren't able to open / write the save file!")
+		push_error("Hey we weren't able to open / write the save file: " + saveLocation)
 		return
 	
 	var saveDict = JSON.parse_string(saveString)
 	if not saveDict:
-		push_error("Failed to parse save file!")
+		push_error("Failed to parse save file: " + saveLoc)
 	
 	for system in saveDict:
 		var solarSys = solarSystemScene.instantiate()
