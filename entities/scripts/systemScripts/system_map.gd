@@ -16,7 +16,6 @@ class StarData:
 class PlanetData:
 	var name: String = 'Unknown'
 	var size: int = 0
-	var temperature: int = 0
 	var order: int = 1
 	var resources: Array = []
 	var starName: String = 'Sol'
@@ -29,12 +28,12 @@ class PlanetData:
 	var orbitSpeed = (1.0 / sqrt(orbitSize / 100.0)) / 10.0
 	var spinSpeed : float = 1
 	var textureID : int = 0
-	func _init(planetName: String, planetSize: int, planetTemp: int, systemOrder: int, planetResources: Array, planetStarName: String,
+	func _init(planetName: String, planetSize: int, systemOrder: int, planetResources: Array, planetStarName: String,
 	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3,
 	planetTextureID : int):
 		name = planetName
 		size = planetSize
-		temperature = planetTemp
+		# temperature = planetTemp
 		order = systemOrder
 		resources = planetResources
 		starName = planetStarName
@@ -63,15 +62,13 @@ var MIN_PLANETS: int = 1
 var MAX_PLANETS: int = 5
 var MIN_PLANET_SIZE: int = 10
 var MAX_PLANET_SIZE: int = 100
-var MIN_PLANET_TEMP: int = 40
-var MAX_PLANET_TEMP: int = 1000
 
 var systemList: Array = []
 
 func _ready() -> void:
 	# placeholder for when the user will actually input something
-	const savePath := "user://saves/PLACEHOLDER"
-	if savePath == null:
+	var savePath = saveLocation
+	if savePath == null or (not FileAccess.file_exists(savePath)):
 		generateUniverse()
 	else:
 		loadSave(savePath)
@@ -98,7 +95,7 @@ func generateUniverse():
 			planetList.append(PlanetData.new(
 				PlanetNameGenerator.generate(),
 				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
-				GlobalRNG.rng.randi_range(MIN_PLANET_TEMP, MAX_PLANET_TEMP),
+				# GlobalRNG.rng.randi_range(MIN_PLANET_TEMP, MAX_PLANET_TEMP),
 				j,
 				[],
 				systemStarName,
@@ -149,7 +146,7 @@ func loadSave(newSaveLoc: String):
 	
 	var saveDict = JSON.parse_string(saveString)
 	if not saveDict:
-		push_error("Failed to parse save file: " + saveLoc)
+		push_error("Failed to parse save file: " + saveLocation)
 	
 	for system in saveDict:
 		var solarSys = solarSystemScene.instantiate()

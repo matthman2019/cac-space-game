@@ -9,6 +9,8 @@ var audio_folder_string = "res://assets/audio"
 
 var current_song_type_playing = null
 
+@export var defaultMusicCategory : String = "Background"
+
 func _ready() -> void:
 	var music_categories = audio_folder.get_directories()
 	
@@ -26,7 +28,7 @@ func _ready() -> void:
 	finished.connect(change_song_instant)
 	# Globals.changeSong.connect(change_song_to_with_fade)
 	
-func change_song_with_fade(song_type : String = "Background"):
+func change_song_with_fade(song_type : String = defaultMusicCategory):
 	if song_type == current_song_type_playing:
 		return
 	
@@ -76,7 +78,7 @@ func change_song_to_with_fade(song):
 func change_song_instant():
 	
 	# first figure out song type
-	var song_type = "Background"
+	var song_type = defaultMusicCategory
 	var songs_of_type:Array = audio_dict[song_type]
 	# gets a new random song
 	var song_path = songs_of_type.pick_random()

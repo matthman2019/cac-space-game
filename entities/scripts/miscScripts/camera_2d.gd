@@ -10,6 +10,8 @@ var zoomSpeed: float = 0.1
 
 var followedPlanet: Node2D = null
 
+signal planetClicked # for dialog for planet choosing
+
 func _process(_delta: float) -> void:
 	if followedPlanet != null and is_instance_valid(followedPlanet):
 		position = followedPlanet.global_position

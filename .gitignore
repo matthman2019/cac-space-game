@@ -26,4 +26,5 @@ data_*/
 mono_crash.*.json
 
 # Local saves
-testing/saves/
+# Let's uncomment this
+# testing/saves/

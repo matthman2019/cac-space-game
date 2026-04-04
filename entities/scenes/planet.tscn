@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://qyxxk2whubgx"]
 
 [ext_resource type="Script" uid="uid://4p5u1taskv23" path="res://entities/scripts/planetScripts/Planet.gd" id="1_l11gs"]
-[ext_resource type="PackedScene" uid="uid://c6slyvtgodho1" path="res://entities/scenes/shaded_planet.tscn" id="2_nktd4"]
+[ext_resource type="Shader" uid="uid://3dyi6xpnjufd" path="res://entities/shaderScripts/planetShader.gdshader" id="2_7afow"]
+[ext_resource type="Texture2D" uid="uid://ba4umu0vt1u78" path="res://assets/planets/Gray Gas 30 by 30.png" id="3_50shw"]
+[ext_resource type="Script" uid="uid://c8u462c3cu5we" path="res://entities/scripts/planetScripts/shaded_planet_sprite_test.gd" id="4_lf4du"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58407"]
+shader = ExtResource("2_7afow")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nktd4"]
 radius = 14.035668
@@ -9,8 +14,10 @@ radius = 14.035668
 [node name="Planet" type="Node2D" unique_id=1341596911]
 script = ExtResource("1_l11gs")
 
-[node name="ShadedPlanet" parent="." unique_id=556070311 instance=ExtResource("2_nktd4")]
-scale = Vector2(1, 1)
+[node name="ShadedPlanet" type="Sprite2D" parent="." unique_id=556070311]
+material = SubResource("ShaderMaterial_58407")
+texture = ExtResource("3_50shw")
+script = ExtResource("4_lf4du")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=659469967]
 

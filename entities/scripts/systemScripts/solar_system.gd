@@ -11,6 +11,8 @@ var MIN_STAR_ROTATION: float = 0.05
 var MAX_STAR_ROTATION: float = 0.2
 var STAR_BASE_SCALE: float = 1.0
 var STAR_SIZE_SCALE: float = 0.08
+var MIN_BASE_TEMP: int = 800
+var MAX_BASE_TEMP: int = 1000
 
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var rotationSpeed: float
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var starName: String = ""
@@ -27,11 +29,13 @@ func loadSystem(system) -> void:
 	if GlobalRNG.rng.randi_range(0, 1) == 0:
 		rotationSpeed *= -1.0
 
+	# I see no reason to supress an error here
 	if system == null:
-		for i in range(3):
-			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
-			addPlanet(BASE_ORBIT_DISTANCE + i * orbitDist, "Fallback Star", null)
+		push_error("No system data was given!")
 		return
+		'''for i in range(3):
+			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
+			addPlanet(BASE_ORBIT_DISTANCE + i * orbitDist, "Fallback Star", null)'''
 
 	starName = system.stars[0].name
 	print("generated star " + starName)
@@ -42,11 +46,13 @@ func loadSystem(system) -> void:
 	for planetData in system.planets:
 		var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
 		var orbit = BASE_ORBIT_DISTANCE + (planetData.order - 1) * orbitDist
-		addPlanet(orbit, starName, planetData)
+		var temperature = GlobalRNG.rng.randf_range(MIN_BASE_TEMP, MAX_BASE_TEMP) / sqrt(orbit / 50)
+		addPlanet(orbit, temperature, starName, planetData)
 
-func addPlanet(orbit: float, starName: String, planetData) -> void:
+func addPlanet(orbit: float, temperature : float, starName: String, planetData) -> void:
 	var planet : Planet = planetScene.instantiate()
 	planet.position = Vector2(orbit, 0)
+	planet.planetTemperature = temperature
 	add_child(planet)
 	planet.add_to_group("planets")
 	planet.setup($Star.position, planetData)

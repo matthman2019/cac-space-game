@@ -44,7 +44,6 @@ func setup(sPos: Vector2, pData = null) -> void:
 	if pData != null:
 		planetName = pData.name
 		planetSize = pData.size
-		planetTemperature = pData.temperature
 		planetOrder = pData.order
 		planetStarName = pData.starName
 		currentPop = pData.population
@@ -80,9 +79,11 @@ func _onStaticBody2dInputEvent(viewport: Node, event: InputEvent, shape_idx: int
 	if event is InputEventMouseButton and not click and event.button_index == MOUSE_BUTTON_LEFT:
 		click = true
 		var camera = get_viewport().get_camera_2d()
-		if camera != null:
+		if camera:
 			camera.followedPlanet = self
-		if gui != null:
+			camera.emit_signal("planetClicked", self)
+		
+		if gui:
 			gui.fillPlanetData(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
 		self.currentPop += 50
