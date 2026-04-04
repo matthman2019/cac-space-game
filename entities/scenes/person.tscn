@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://gr33d4f04304"]
+
+[ext_resource type="Shader" uid="uid://b2xgd3qi6hom4" path="res://entities/shaderScripts/personShader.gdshader" id="1_rtx5y"]
+[ext_resource type="Texture2D" uid="uid://dgbnki8t5daw" path="res://assets/icons/person.png" id="2_q8mja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcm55"]
+shader = ExtResource("1_rtx5y")
+
+[node name="Person" type="Sprite2D" unique_id=1554450092]
+material = SubResource("ShaderMaterial_bcm55")
+instance_shader_parameters/eyeColor = Vector3(0, 0, 1)
+instance_shader_parameters/hairColor = Vector4(1, 1, 1, 0)
+texture = ExtResource("2_q8mja")
