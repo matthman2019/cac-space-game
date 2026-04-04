@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://hxrxo4ykpkji"]
+
+[ext_resource type="Script" uid="uid://m1ds8jas0d1e" path="res://entities/scripts/ChoosePlanetMap.gd" id="1_b553f"]
+[ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/miscScripts/camera_2d.gd" id="1_kptal"]
+[ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="2_b553f"]
+[ext_resource type="PackedScene" uid="uid://nqi2ykyfpor3" path="res://interface/researchCount.tscn" id="3_pskrq"]
+[ext_resource type="Script" uid="uid://b5mbydv4nhq3n" path="res://entities/scripts/musicPlayer.gd" id="5_pskrq"]
+[ext_resource type="PackedScene" uid="uid://ce7uiaq3jd2ar" path="res://entities/scenes/dialog.tscn" id="6_l2dni"]
+
+[node name="ChoosePlanetScene" type="Node2D" unique_id=1030093942]
+script = ExtResource("1_b553f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=318880140]
+script = ExtResource("1_kptal")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=78704290]
+
+[node name="Gui" type="Control" parent="Camera2D/CanvasLayer" unique_id=1246317962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlanetInfoGUI" parent="Camera2D/CanvasLayer/Gui" unique_id=1961054574 instance=ExtResource("2_b553f")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1494.0
+offset_top = -825.0
+offset_right = -1298.0
+offset_bottom = -729.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Control" parent="Camera2D/CanvasLayer/Gui" unique_id=178861494 instance=ExtResource("3_pskrq")]
+layout_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=657732649]
+script = ExtResource("5_pskrq")
+defaultMusicCategory = "Planet Choosing"
+
+[node name="CanvasLayer" parent="." unique_id=850405962 instance=ExtResource("6_l2dni")]
