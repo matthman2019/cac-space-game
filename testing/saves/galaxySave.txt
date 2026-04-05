@@ -2,7 +2,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.04548163, 0.13322943, 0.25470334)",
 				"lightColor": "Vector3(0.9545184, 0.86677057, 0.74529666)",
@@ -13,7 +13,7 @@
 				"planetSize": "48",
 				"planetStarName": "\"lodnovij\"",
 				"planetTemperature": "631",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.95006454",
@@ -22,7 +22,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.9716598770600333",
+				"angle": "-6.141066331594212",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.059259973, 0.17296888, 0.17287119)",
 				"lightColor": "Vector3(0.94074005, 0.82703114, 0.8271288)",
@@ -33,7 +33,7 @@
 				"planetSize": "43",
 				"planetStarName": "\"lodnovij\"",
 				"planetTemperature": "317",
-				"position": "Vector2(-129.67238, -305.9671)",
+				"position": "Vector2(328.96097, 47.06892)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.40954044",
@@ -42,7 +42,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.4976405298086326",
+				"angle": "-4.664653341808488",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.14252342, 0.3928341, 0.4951574)",
 				"lightColor": "Vector3(0.8574766, 0.60716593, 0.50484264)",
@@ -53,7 +53,7 @@
 				"planetSize": "78",
 				"planetStarName": "\"lodnovij\"",
 				"planetTemperature": "270",
-				"position": "Vector2(42.097397, -574.42163)",
+				"position": "Vector2(-27.48348, 575.3061)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.9030166",
@@ -69,7 +69,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.4669566, 0.4734421, 0.24922943)",
 				"lightColor": "Vector3(0.5330434, 0.5265579, 0.75077057)",
@@ -80,7 +80,7 @@
 				"planetSize": "81",
 				"planetStarName": "\"kone - 10\"",
 				"planetTemperature": "642",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.7478087",
@@ -89,7 +89,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.200240133223931",
+				"angle": "6.853017987924273",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.26037335, 0.09401435, 0.31976786)",
 				"lightColor": "Vector3(0.73962665, 0.90598565, 0.68023217)",
@@ -100,7 +100,7 @@
 				"planetSize": "43",
 				"planetStarName": "\"kone - 10\"",
 				"planetTemperature": "384",
-				"position": "Vector2(-157.09396, 215.71042)",
+				"position": "Vector2(224.68626, 143.96379)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.9439539",
@@ -116,7 +116,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.3653631, 0.37769842, 0.22818749)",
 				"lightColor": "Vector3(0.6346369, 0.6223016, 0.7718125)",
@@ -127,7 +127,7 @@
 				"planetSize": "43",
 				"planetStarName": "\"ruivadar\"",
 				"planetTemperature": "576",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.60721016",
@@ -136,7 +136,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.1246132115556775",
+				"angle": "6.617465219507776",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.04201881, 0.027886951, 0.36398268)",
 				"lightColor": "Vector3(0.95798117, 0.9721131, 0.6360173)",
@@ -147,7 +147,7 @@
 				"planetSize": "34",
 				"planetStarName": "\"ruivadar\"",
 				"planetTemperature": "410",
-				"position": "Vector2(-150.51627, 243.4084)",
+				"position": "Vector2(270.3453, 93.8947)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6895546",
@@ -163,7 +163,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.3159755, 0.2141586, 0.21021703)",
 				"lightColor": "Vector3(0.6840245, 0.7858414, 0.789783)",
@@ -174,7 +174,7 @@
 				"planetSize": "20",
 				"planetStarName": "\"cyabamay\"",
 				"planetTemperature": "566",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.33343345",
@@ -183,7 +183,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.9676341063018785",
+				"angle": "6.1285273914104845",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.49031502, 0.438026, 0.36660355)",
 				"lightColor": "Vector3(0.509685, 0.561974, 0.63339645)",
@@ -194,7 +194,7 @@
 				"planetSize": "45",
 				"planetStarName": "\"cyabamay\"",
 				"planetTemperature": "327",
-				"position": "Vector2(-128.9657, 307.7421)",
+				"position": "Vector2(329.6899, -51.399616)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.59676015",
@@ -203,7 +203,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.5164273209140662",
+				"angle": "-4.723167962752942",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.49281555, 0.47156557, 0.4795813)",
 				"lightColor": "Vector3(0.50718445, 0.5284344, 0.5204187)",
@@ -214,7 +214,7 @@
 				"planetSize": "92",
 				"planetStarName": "\"cyabamay\"",
 				"planetTemperature": "254",
-				"position": "Vector2(30.528349, -560.94946)",
+				"position": "Vector2(6.0552945, 561.7469)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6651025",
@@ -223,7 +223,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.3730927775822204",
+				"angle": "4.276728417854378",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27026713, 0.16271415, 0.11299513)",
 				"lightColor": "Vector3(0.7297329, 0.8372859, 0.88700485)",
@@ -234,7 +234,7 @@
 				"planetSize": "78",
 				"planetStarName": "\"cyabamay\"",
 				"planetTemperature": "218",
-				"position": "Vector2(134.58324, 671.8401)",
+				"position": "Vector2(-289.1555, -621.18506)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.32562903",
@@ -250,7 +250,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.49299866, 0.08445322, 0.33448908)",
 				"lightColor": "Vector3(0.50700134, 0.9155468, 0.6655109)",
@@ -261,7 +261,7 @@
 				"planetSize": "21",
 				"planetStarName": "\"ose\"",
 				"planetTemperature": "591",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.81398994",
@@ -270,7 +270,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.120277500479199",
+				"angle": "6.603960918068246",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.19427855, 0.17933732, 0.05259978)",
 				"lightColor": "Vector3(0.80572146, 0.8206627, 0.9474002)",
@@ -281,7 +281,7 @@
 				"planetSize": "57",
 				"planetStarName": "\"ose\"",
 				"planetTemperature": "378",
-				"position": "Vector2(-150.07138, 245.05788)",
+				"position": "Vector2(272.70047, 90.60484)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.81285185",
@@ -290,7 +290,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.5019842553512364",
+				"angle": "4.678182605650037",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.19086024, 0.48053715, 0.27261043)",
 				"lightColor": "Vector3(0.8091397, 0.5194628, 0.7273896)",
@@ -301,7 +301,7 @@
 				"planetSize": "33",
 				"planetStarName": "\"ose\"",
 				"planetTemperature": "294",
-				"position": "Vector2(39.373154, 571.2804)",
+				"position": "Vector2(-19.58397, -572.3006)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.31352833",
@@ -310,7 +310,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.3355944902439554",
+				"angle": "4.159933694511934",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.22769552, 0.20526816, 0.13422465)",
 				"lightColor": "Vector3(0.7723045, 0.79473186, 0.86577535)",
@@ -321,7 +321,7 @@
 				"planetSize": "100",
 				"planetStarName": "\"ose\"",
 				"planetTemperature": "222",
-				"position": "Vector2(168.76758, 704.26306)",
+				"position": "Vector2(-380.04605, -616.46893)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.7718922",
@@ -337,7 +337,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.055560093, 0.3632076, 0.17772426)",
 				"lightColor": "Vector3(0.9444399, 0.6367924, 0.82227576)",
@@ -348,7 +348,7 @@
 				"planetSize": "100",
 				"planetStarName": "\"uou\"",
 				"planetTemperature": "595",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.426192",
@@ -357,7 +357,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.2029611966850338",
+				"angle": "6.8614931977742035",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.32956198, 0.3000975, 0.44154844)",
 				"lightColor": "Vector3(0.67043805, 0.69990253, 0.55845153)",
@@ -368,7 +368,7 @@
 				"planetSize": "19",
 				"planetStarName": "\"uou\"",
 				"planetTemperature": "426",
-				"position": "Vector2(-157.29105, 214.75066)",
+				"position": "Vector2(222.9064, 145.50276)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.75605917",
@@ -377,7 +377,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.5406127290629632",
+				"angle": "4.79849748455615",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.20205593, 0.31787565, 0.052968744)",
 				"lightColor": "Vector3(0.79794407, 0.6821244, 0.94703126)",
@@ -388,7 +388,7 @@
 				"planetSize": "60",
 				"planetStarName": "\"uou\"",
 				"planetTemperature": "301",
-				"position": "Vector2(16.425825, 544.0318)",
+				"position": "Vector2(46.809216, -542.2631)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6157799",
@@ -397,7 +397,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.2984431763742201",
+				"angle": "-4.044219678400814",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.0397321, 0.010029581, 0.15244345)",
 				"lightColor": "Vector3(0.9602679, 0.98997045, 0.84755653)",
@@ -408,7 +408,7 @@
 				"planetSize": "80",
 				"planetStarName": "\"uou\"",
 				"planetTemperature": "214",
-				"position": "Vector2(206.11673, -737.99414)",
+				"position": "Vector2(-474.72226, 601.4634)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.70032895",
@@ -417,7 +417,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.0967300764679684",
+				"angle": "-3.41595029944325",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.44766122, 0.16827421, 0.47934958)",
 				"lightColor": "Vector3(0.5523388, 0.8317258, 0.5206504)",
@@ -428,7 +428,7 @@
 				"planetSize": "90",
 				"planetStarName": "\"uou\"",
 				"planetTemperature": "206",
-				"position": "Vector2(490.29547, -955.5704)",
+				"position": "Vector2(-1033.8445, 290.98096)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.7813642",
@@ -444,7 +444,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.103135556, 0.30119658, 0.18902893)",
 				"lightColor": "Vector3(0.8968644, 0.6988034, 0.8109711)",
@@ -455,7 +455,7 @@
 				"planetSize": "35",
 				"planetStarName": "\"ezya\"",
 				"planetTemperature": "642",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.31875485",
@@ -464,7 +464,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.9898447083423074",
+				"angle": "6.197706047414755",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.121275105, 0.1768773, 0.181223)",
 				"lightColor": "Vector3(0.8787249, 0.8231227, 0.81877697)",
@@ -475,7 +475,7 @@
 				"planetSize": "90",
 				"planetStarName": "\"ezya\"",
 				"planetTemperature": "356",
-				"position": "Vector2(-132.75449, 298.0356)",
+				"position": "Vector2(325.07397, -27.854958)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.32519996",
@@ -484,7 +484,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.58361191476384",
+				"angle": "4.9324256811311855",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.46793333, 0.46027598, 0.205997)",
 				"lightColor": "Vector3(0.5320667, 0.539724, 0.794003)",
@@ -495,7 +495,7 @@
 				"planetSize": "67",
 				"planetStarName": "\"ezya\"",
 				"planetTemperature": "307",
-				"position": "Vector2(-6.6014338, 515.0815)",
+				"position": "Vector2(112.43372, -502.7039)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.59650695",
@@ -504,7 +504,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.3911972606224767",
+				"angle": "-4.333117875560694",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.44957733, 0.39221534, 0.2616393)",
 				"lightColor": "Vector3(0.55042267, 0.6077846, 0.7383607)",
@@ -515,7 +515,7 @@
 				"planetSize": "43",
 				"planetStarName": "\"ezya\"",
 				"planetTemperature": "239",
-				"position": "Vector2(119.23355, -656.7339)",
+				"position": "Vector2(-247.12637, 620.036)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6235783",
@@ -524,7 +524,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.2797886905095612",
+				"angle": "-3.9861171443833556",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.43385857, 0.050096814, 0.05078096)",
 				"lightColor": "Vector3(0.5661414, 0.9499032, 0.94921905)",
@@ -535,7 +535,7 @@
 				"planetSize": "69",
 				"planetStarName": "\"ezya\"",
 				"planetTemperature": "210",
-				"position": "Vector2(226.30276, -755.57544)",
+				"position": "Vector2(-523.79034, 589.70404)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.56627023",
@@ -551,7 +551,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.03031283, 0.026537407, 0.08748603)",
 				"lightColor": "Vector3(0.96968716, 0.9734626, 0.912514)",
@@ -562,7 +562,7 @@
 				"planetSize": "78",
 				"planetStarName": "\"hyo\"",
 				"planetTemperature": "569",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.7059196",
@@ -571,7 +571,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.1150893342661923",
+				"angle": "6.587801501719083",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.37898538, 0.082542874, 0.34846997)",
 				"lightColor": "Vector3(0.6210146, 0.9174571, 0.65153)",
@@ -582,7 +582,7 @@
 				"planetSize": "95",
 				"planetStarName": "\"hyo\"",
 				"planetTemperature": "384",
-				"position": "Vector2(-149.52884, 247.04066)",
+				"position": "Vector2(275.4754, 86.60986)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6597524",
@@ -591,7 +591,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.4878051727365904",
+				"angle": "4.634019467844105",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.34303144, 0.18447046, 0.4689679)",
 				"lightColor": "Vector3(0.6569686, 0.8155295, 0.5310321)",
@@ -602,7 +602,7 @@
 				"planetSize": "55",
 				"planetStarName": "\"hyo\"",
 				"planetTemperature": "278",
-				"position": "Vector2(48.37825, 581.5937)",
+				"position": "Vector2(-45.689823, -581.81104)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.44458395",
@@ -611,7 +611,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.3892053583083788",
+				"angle": "4.326913760753322",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.32807234, 0.06340454, 0.2158265)",
 				"lightColor": "Vector3(0.6719277, 0.93659544, 0.7841735)",
@@ -622,7 +622,7 @@
 				"planetSize": "97",
 				"planetStarName": "\"hyo\"",
 				"planetTemperature": "260",
-				"position": "Vector2(120.8874, 658.3791)",
+				"position": "Vector2(-251.6886, -620.2658)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.43163997",
@@ -631,7 +631,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.2193025427286377",
+				"angle": "-3.797722863003689",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.4591506, 0.46918392, 0.1410356)",
 				"lightColor": "Vector3(0.5408494, 0.5308161, 0.8589644)",
@@ -642,7 +642,7 @@
 				"planetSize": "89",
 				"planetStarName": "\"hyo\"",
 				"planetTemperature": "217",
-				"position": "Vector2(299.1741, -815.8057)",
+				"position": "Vector2(-688.50665, 530.0969)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6693388",
@@ -658,7 +658,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.48707715, 0.46109983, 0.38478002)",
 				"lightColor": "Vector3(0.5129229, 0.53890014, 0.61521995)",
@@ -669,7 +669,7 @@
 				"planetSize": "53",
 				"planetStarName": "\"vulia\"",
 				"planetTemperature": "670",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.47718328",
@@ -685,7 +685,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.42311707, 0.2252941, 0.21595402)",
 				"lightColor": "Vector3(0.57688296, 0.7747059, 0.784046)",
@@ -696,7 +696,7 @@
 				"planetSize": "80",
 				"planetStarName": "\"fysi - 0\"",
 				"planetTemperature": "687",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.83399284",
@@ -705,7 +705,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.0382193335486467",
+				"angle": "6.348376954510158",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.3564286, 0.27690852, 0.0913281)",
 				"lightColor": "Vector3(0.6435714, 0.7230915, 0.9086719)",
@@ -716,7 +716,7 @@
 				"planetSize": "71",
 				"planetStarName": "\"fysi - 0\"",
 				"planetTemperature": "364",
-				"position": "Vector2(-140.1155, 277.60583)",
+				"position": "Vector2(310.30142, 20.257767)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.49677455",
@@ -725,7 +725,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.749092819200851",
+				"angle": "-5.447843792837108",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.26232788, 0.38764745, 0.019642217)",
 				"lightColor": "Vector3(0.7376721, 0.61235255, 0.98035777)",
@@ -736,7 +736,7 @@
 				"planetSize": "56",
 				"planetStarName": "\"fysi - 0\"",
 				"planetTemperature": "330",
-				"position": "Vector2(-74.88982, -415.56934)",
+				"position": "Vector2(283.30682, 313.11914)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.30194157",
@@ -752,7 +752,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.38144538, 0.022545353, 0.02045618)",
 				"lightColor": "Vector3(0.6185546, 0.97745466, 0.9795438)",
@@ -763,7 +763,7 @@
 				"planetSize": "55",
 				"planetStarName": "\"voobvaro\"",
 				"planetTemperature": "634",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.38832575",
@@ -772,7 +772,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.1564640262592794",
+				"angle": "6.716669939393076",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27401927, 0.48272932, 0.42539468)",
 				"lightColor": "Vector3(0.72598076, 0.5172707, 0.57460535)",
@@ -783,7 +783,7 @@
 				"planetSize": "99",
 				"planetStarName": "\"voobvaro\"",
 				"planetTemperature": "395",
-				"position": "Vector2(-153.55293, 231.49872)",
+				"position": "Vector2(252.10123, 116.68388)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.5137651",
@@ -792,7 +792,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.7127951955583085",
+				"angle": "-5.334788738533688",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.45334268, 0.38535258, 0.3445267)",
 				"lightColor": "Vector3(0.5466573, 0.6146474, 0.6554733)",
@@ -803,7 +803,7 @@
 				"planetSize": "79",
 				"planetStarName": "\"voobvaro\"",
 				"planetTemperature": "320",
-				"position": "Vector2(-62.319313, -435.91815)",
+				"position": "Vector2(256.7183, 357.77655)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.5397152",
@@ -819,7 +819,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27315027, 0.4095115, 0.4612646)",
 				"lightColor": "Vector3(0.72684973, 0.5904885, 0.5387354)",
@@ -830,7 +830,7 @@
 				"planetSize": "99",
 				"planetStarName": "\"ohtifa kaxun\"",
 				"planetTemperature": "674",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.4885657",
@@ -839,7 +839,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-2.0200274155716604",
+				"angle": "-6.291715165985992",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.49702945, 0.16768567, 0.45509014)",
 				"lightColor": "Vector3(0.5029706, 0.8323143, 0.54490983)",
@@ -850,7 +850,7 @@
 				"planetSize": "50",
 				"planetStarName": "\"ohtifa kaxun\"",
 				"planetTemperature": "329",
-				"position": "Vector2(-137.48567, -285.17664)",
+				"position": "Vector2(316.57657, -2.700419)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.4379503",
@@ -859,7 +859,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.7456851976514551",
+				"angle": "5.437230182339423",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.26698712, 0.2968487, 0.07129704)",
 				"lightColor": "Vector3(0.7330129, 0.7031513, 0.92870295)",
@@ -870,7 +870,7 @@
 				"planetSize": "49",
 				"planetStarName": "\"ohtifa kaxun\"",
 				"planetTemperature": "292",
-				"position": "Vector2(-73.7604, 417.44708)",
+				"position": "Vector2(281.06168, -317.34366)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.512143",
@@ -879,7 +879,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.3440191663466898",
+				"angle": "4.1861737653121756",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.21423526, 0.28561428, 0.116870634)",
 				"lightColor": "Vector3(0.78576475, 0.71438575, 0.88312936)",
@@ -890,7 +890,7 @@
 				"planetSize": "97",
 				"planetStarName": "\"ohtifa kaxun\"",
 				"planetTemperature": "211",
-				"position": "Vector2(160.79355, 696.84106)",
+				"position": "Vector2(-359.1951, -618.40186)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.9316047",
@@ -899,7 +899,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.1876484455280605",
+				"angle": "-3.6991308528720652",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.10554541, 0.022519981, 0.45422333)",
 				"lightColor": "Vector3(0.8944546, 0.97748, 0.54577667)",
@@ -910,7 +910,7 @@
 				"planetSize": "19",
 				"planetStarName": "\"ohtifa kaxun\"",
 				"planetTemperature": "233",
-				"position": "Vector2(342.39023, -849.4615)",
+				"position": "Vector2(-777.1699, 484.58514)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.94350207",
@@ -926,7 +926,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.071827315, 0.23633523, 0.33240557)",
 				"lightColor": "Vector3(0.9281727, 0.7636648, 0.66759443)",
@@ -937,7 +937,7 @@
 				"planetSize": "39",
 				"planetStarName": "\"goji\"",
 				"planetTemperature": "600",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.48834947",
@@ -946,7 +946,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.9398914704989099",
+				"angle": "-6.042118285732271",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.09956472, 0.016084304, 0.1624234)",
 				"lightColor": "Vector3(0.90043527, 0.9839157, 0.8375766)",
@@ -957,7 +957,7 @@
 				"planetSize": "85",
 				"planetStarName": "\"goji\"",
 				"planetTemperature": "337",
-				"position": "Vector2(-123.847336, -320.16577)",
+				"position": "Vector2(333.35806, 81.95538)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.613457",
@@ -966,7 +966,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.6100627084984436",
+				"angle": "-5.0148111273928",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.19942558, 0.46217412, 0.017420983)",
 				"lightColor": "Vector3(0.8005744, 0.5378259, 0.982579)",
@@ -977,7 +977,7 @@
 				"planetSize": "35",
 				"planetStarName": "\"goji\"",
 				"planetTemperature": "295",
-				"position": "Vector2(-19.562881, -497.95334)",
+				"position": "Vector2(148.4215, 475.72186)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.9856508",
@@ -986,7 +986,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.4911878222090529",
+				"angle": "4.644555298607426",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.41655222, 0.07325305, 0.29334012)",
 				"lightColor": "Vector3(0.5834478, 0.92674696, 0.7066599)",
@@ -997,7 +997,7 @@
 				"planetSize": "10",
 				"planetStarName": "\"goji\"",
 				"planetTemperature": "270",
-				"position": "Vector2(46.20033, 579.1177)",
+				"position": "Vector2(-39.378277, -579.6215)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.42064908",
@@ -1013,7 +1013,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.088634826, 0.26864877, 0.025463581)",
 				"lightColor": "Vector3(0.91136515, 0.73135126, 0.9745364)",
@@ -1024,7 +1024,7 @@
 				"planetSize": "34",
 				"planetStarName": "\"hyhahu vele\"",
 				"planetTemperature": "699",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.75020874",
@@ -1033,7 +1033,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.9497171176818775",
+				"angle": "6.0727219166126885",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.1614389, 0.0067701065, 0.14580645)",
 				"lightColor": "Vector3(0.8385611, 0.99322987, 0.85419357)",
@@ -1044,7 +1044,7 @@
 				"planetSize": "15",
 				"planetStarName": "\"hyhahu vele\"",
 				"planetTemperature": "336",
-				"position": "Vector2(-125.71046, 315.727)",
+				"position": "Vector2(332.3346, -70.99562)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.344374",
@@ -1053,7 +1053,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.5241385630535795",
+				"angle": "-4.74718592347117",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.40935132, 0.18822332, 0.3557273)",
 				"lightColor": "Vector3(0.59064865, 0.8117767, 0.6442727)",
@@ -1064,7 +1064,7 @@
 				"planetSize": "51",
 				"planetStarName": "\"hyhahu vele\"",
 				"planetTemperature": "263",
-				"position": "Vector2(25.937408, -555.5042)",
+				"position": "Vector2(19.347002, 555.77277)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.41878846",
@@ -1073,7 +1073,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.3424693585157919",
+				"angle": "4.181346628136393",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.20795912, 0.21950892, 0.057125837)",
 				"lightColor": "Vector3(0.7920409, 0.7804911, 0.9428742)",
@@ -1084,7 +1084,7 @@
 				"planetSize": "19",
 				"planetStarName": "\"hyhahu vele\"",
 				"planetTemperature": "214",
-				"position": "Vector2(162.2473, 698.2003)",
+				"position": "Vector2(-363.01273, -618.08545)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.58770764",
@@ -1100,7 +1100,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.1545752, 0.18425444, 0.41569397)",
 				"lightColor": "Vector3(0.8454248, 0.8157456, 0.584306)",
@@ -1111,7 +1111,7 @@
 				"planetSize": "43",
 				"planetStarName": "\"heazualgu\"",
 				"planetTemperature": "568",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.5652629",
@@ -1120,7 +1120,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.9276121967310653",
+				"angle": "-6.003872422136252",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.34873965, 0.112550326, 0.2825422)",
 				"lightColor": "Vector3(0.6512604, 0.8874497, 0.7174578)",
@@ -1131,7 +1131,7 @@
 				"planetSize": "58",
 				"planetStarName": "\"heazualgu\"",
 				"planetTemperature": "325",
-				"position": "Vector2(-121.439224, -325.7735)",
+				"position": "Vector2(334.19806, 95.851524)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.47095752",
@@ -1140,7 +1140,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.6071506401117936",
+				"angle": "5.00574100057601",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.40612933, 0.0047148694, 0.04975553)",
 				"lightColor": "Vector3(0.59387064, 0.99528515, 0.9502445)",
@@ -1151,7 +1151,7 @@
 				"planetSize": "51",
 				"planetStarName": "\"heazualgu\"",
 				"planetTemperature": "261",
-				"position": "Vector2(-18.178425, 499.81454)",
+				"position": "Vector2(144.62326, -478.7788)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.6733512",
@@ -1167,7 +1167,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.11107737, 0.4776266, 0.035912104)",
 				"lightColor": "Vector3(0.88892263, 0.52237344, 0.9640879)",
@@ -1178,7 +1178,7 @@
 				"planetSize": "81",
 				"planetStarName": "\"yebubia furqyzu - 10\"",
 				"planetTemperature": "705",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.74386644",
@@ -1194,7 +1194,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27487296, 0.2649702, 0.3872945)",
 				"lightColor": "Vector3(0.72512704, 0.7350298, 0.61270547)",
@@ -1205,7 +1205,7 @@
 				"planetSize": "71",
 				"planetStarName": "\"wuka\"",
 				"planetTemperature": "617",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.53973854",
@@ -1214,7 +1214,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.179739609116099",
+				"angle": "6.789165657285508",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.2927681, 0.3785561, 0.31368175)",
 				"lightColor": "Vector3(0.7072319, 0.62144387, 0.6863183)",
@@ -1225,7 +1225,7 @@
 				"planetSize": "50",
 				"planetStarName": "\"wuka\"",
 				"planetTemperature": "423",
-				"position": "Vector2(-155.52374, 223.02199)",
+				"position": "Vector2(237.82576, 131.77763)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.55469465",
@@ -1234,7 +1234,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.6391305937968381",
+				"angle": "-5.105347945539006",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.09108411, 0.11816461, 0.11886812)",
 				"lightColor": "Vector3(0.9089159, 0.8818354, 0.8811319)",
@@ -1245,7 +1245,7 @@
 				"planetSize": "58",
 				"planetStarName": "\"wuka\"",
 				"planetTemperature": "262",
-				"position": "Vector2(-32.83088, -479.69727)",
+				"position": "Vector2(184.11707, 444.1714)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.82699",
@@ -1254,7 +1254,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.4264416700115297",
+				"angle": "-4.442892516913936",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27718833, 0.2539362, 0.24741533)",
 				"lightColor": "Vector3(0.7228117, 0.7460638, 0.7525847)",
@@ -1265,7 +1265,7 @@
 				"planetSize": "73",
 				"planetStarName": "\"wuka\"",
 				"planetTemperature": "255",
-				"position": "Vector2(91.3319, -628.2902)",
+				"position": "Vector2(-169.03801, 611.97736)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.817899",
@@ -1281,7 +1281,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.24719398, 0.17841062, 0.12855214)",
 				"lightColor": "Vector3(0.752806, 0.82158935, 0.87144786)",
@@ -1292,7 +1292,7 @@
 				"planetSize": "71",
 				"planetStarName": "\"natoxi\"",
 				"planetTemperature": "640",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.94053835",
@@ -1301,7 +1301,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-2.106884649295744",
+				"angle": "-6.562246630303054",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.13578045, 0.049804684, 0.052432783)",
 				"lightColor": "Vector3(0.86421955, 0.9501953, 0.9475672)",
@@ -1312,7 +1312,7 @@
 				"planetSize": "61",
 				"planetStarName": "\"natoxi\"",
 				"planetTemperature": "383",
-				"position": "Vector2(-148.64795, -250.1965)",
+				"position": "Vector2(279.7648, -80.16333)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.67439735",
@@ -1328,7 +1328,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.3145133, 0.09296712, 0.491917)",
 				"lightColor": "Vector3(0.6854867, 0.90703285, 0.508083)",
@@ -1339,7 +1339,7 @@
 				"planetSize": "89",
 				"planetStarName": "\"dekoyg walxe\"",
 				"planetTemperature": "701",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.8861214",
@@ -1348,7 +1348,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.9752951193056032",
+				"angle": "-6.152388905035251",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.0054374714, 0.37842566, 0.008152259)",
 				"lightColor": "Vector3(0.9945625, 0.62157434, 0.99184775)",
@@ -1359,7 +1359,7 @@
 				"planetSize": "72",
 				"planetStarName": "\"dekoyg walxe\"",
 				"planetTemperature": "314",
-				"position": "Vector2(-130.30286, -304.37033)",
+				"position": "Vector2(328.26126, 43.18192)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.70146334",
@@ -1368,7 +1368,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.5980676510834226",
+				"angle": "4.9774505034359375",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.40208793, 0.07155029, 0.44243133)",
 				"lightColor": "Vector3(0.5979121, 0.9284497, 0.55756867)",
@@ -1379,7 +1379,7 @@
 				"planetSize": "92",
 				"planetStarName": "\"dekoyg walxe\"",
 				"planetTemperature": "267",
-				"position": "Vector2(-13.793396, 505.65848)",
+				"position": "Vector2(132.51593, -488.18057)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.80532366",
@@ -1395,7 +1395,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "3.5942191999998707",
+				"angle": "11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.4059306, 0.3534936, 0.35604477)",
 				"lightColor": "Vector3(0.59406936, 0.6465064, 0.64395523)",
@@ -1406,7 +1406,7 @@
 				"planetSize": "86",
 				"planetStarName": "\"birme\"",
 				"planetTemperature": "635",
-				"position": "Vector2(-89.93015, -43.73291)",
+				"position": "Vector2(19.791067, -98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.45809275",
@@ -1415,7 +1415,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-2.07551521565625",
+				"angle": "-6.464541252714793",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.25118905, 0.14565246, 0.434572)",
 				"lightColor": "Vector3(0.74881095, 0.8543475, 0.565428)",
@@ -1426,7 +1426,7 @@
 				"planetSize": "11",
 				"planetStarName": "\"birme\"",
 				"planetTemperature": "381",
-				"position": "Vector2(-145.01366, -262.49402)",
+				"position": "Vector2(294.96863, -54.088608)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.38435245",
@@ -1435,7 +1435,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "-1.6646778607064787",
+				"angle": "-5.184919205526157",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.37750238, 0.3920352, 0.30852416)",
 				"lightColor": "Vector3(0.6224976, 0.6079648, 0.69147587)",
@@ -1446,7 +1446,7 @@
 				"planetSize": "12",
 				"planetStarName": "\"birme\"",
 				"planetTemperature": "307",
-				"position": "Vector2(-43.700935, -464.12183)",
+				"position": "Vector2(212.17508, 415.09106)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.78164506",
@@ -1462,7 +1462,7 @@
 	{
 		"planetList": [
 			{
-				"angle": "-3.5942191999998707",
+				"angle": "-11.194800266667094",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.27744725, 0.26720947, 0.3931385)",
 				"lightColor": "Vector3(0.7225528, 0.7327905, 0.6068615)",
@@ -1473,7 +1473,7 @@
 				"planetSize": "96",
 				"planetStarName": "\"rojaa - 15\"",
 				"planetTemperature": "684",
-				"position": "Vector2(-89.93015, 43.73291)",
+				"position": "Vector2(19.791067, 98.022)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.54512084",
@@ -1482,7 +1482,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "2.112232775745736",
+				"angle": "6.5789042697165065",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.23443052, 0.3840623, 0.28819895)",
 				"lightColor": "Vector3(0.76556945, 0.6159377, 0.71180105)",
@@ -1493,7 +1493,7 @@
 				"planetSize": "10",
 				"planetStarName": "\"rojaa - 15\"",
 				"planetTemperature": "378",
-				"position": "Vector2(-149.22536, 248.1366)",
+				"position": "Vector2(276.98273, 84.38327)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.7927041",
@@ -1502,7 +1502,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.5564671990748258",
+				"angle": "4.847878898221418",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.3695476, 0.14697695, 0.14072649)",
 				"lightColor": "Vector3(0.6304524, 0.85302305, 0.8592735)",
@@ -1513,7 +1513,7 @@
 				"planetSize": "18",
 				"planetStarName": "\"rojaa - 15\"",
 				"planetTemperature": "271",
-				"position": "Vector2(7.6407156, 533.1932)",
+				"position": "Vector2(72.02886, -528.36084)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.37834826",
@@ -1522,7 +1522,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.271847189910712",
+				"angle": "3.961382004962752",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.24750769, 0.47296274, 0.102932855)",
 				"lightColor": "Vector3(0.7524923, 0.52703726, 0.8970671)",
@@ -1533,7 +1533,7 @@
 				"planetSize": "87",
 				"planetStarName": "\"rojaa - 15\"",
 				"planetTemperature": "231",
-				"position": "Vector2(235.20596, 763.1968)",
+				"position": "Vector2(-544.95734, -583.7917)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "0.8394749",
@@ -1542,7 +1542,7 @@
 				"totalResearch": "0.0"
 			},
 			{
-				"angle": "1.1713530796985017",
+				"angle": "3.6483761950214433",
 				"currentPop": "0",
 				"darkColor": "Vector3(0.4997107, 0.07553076, 0.4154487)",
 				"lightColor": "Vector3(0.5002893, 0.92446923, 0.58455133)",
@@ -1553,7 +1553,7 @@
 				"planetSize": "51",
 				"planetStarName": "\"rojaa - 15\"",
 				"planetTemperature": "211",
-				"position": "Vector2(366.1656, 867.4092)",
+				"position": "Vector2(-823.188, -456.9874)",
 				"researchPerSec": "0.0",
 				"resources": "[]",
 				"spinSpeed": "-0.9670262",

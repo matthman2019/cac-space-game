@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bwhrrj44kinov" path="res://entities/scripts/miscScripts/camera_2d.gd" id="1_kptal"]
 [ext_resource type="PackedScene" uid="uid://bgewstgpfo7dr" path="res://interface/planet_info_gui.tscn" id="2_b553f"]
 [ext_resource type="PackedScene" uid="uid://nqi2ykyfpor3" path="res://interface/researchCount.tscn" id="3_pskrq"]
-[ext_resource type="Script" uid="uid://b5mbydv4nhq3n" path="res://entities/scripts/musicPlayer.gd" id="5_pskrq"]
+[ext_resource type="PackedScene" uid="uid://bsaokvc1ogtv6" path="res://entities/scenes/music.tscn" id="5_l2dni"]
 [ext_resource type="PackedScene" uid="uid://ce7uiaq3jd2ar" path="res://entities/scenes/dialog.tscn" id="6_l2dni"]
 
 [node name="ChoosePlanetScene" type="Node2D" unique_id=1030093942]
@@ -42,8 +42,8 @@ grow_vertical = 0
 [node name="Control" parent="Camera2D/CanvasLayer/Gui" unique_id=178861494 instance=ExtResource("3_pskrq")]
 layout_mode = 1
 
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=657732649]
-script = ExtResource("5_pskrq")
+[node name="Music" parent="." unique_id=668527819 instance=ExtResource("5_l2dni")]
 defaultMusicCategory = "Planet Choosing"
+autoPlay = false
 
 [node name="CanvasLayer" parent="." unique_id=850405962 instance=ExtResource("6_l2dni")]

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cjpnned7e437b"]
+
+[ext_resource type="Script" uid="uid://dsmu408qmkgj4" path="res://entities/scripts/main_menu.gd" id="1_iw1m0"]
+[ext_resource type="Texture2D" uid="uid://duhfpwdx80rfw" path="res://assets/icons/deoMainMenuRotated.jpeg" id="2_e87l1"]
+[ext_resource type="Shader" uid="uid://c6vu3nw7xos6j" path="res://entities/shaderScripts/titleShader.gdshader" id="3_i3g7y"]
+[ext_resource type="FontFile" uid="uid://b6gtbb74kkuog" path="res://assets/fonts/SterionFont/Sterion-BLLld.ttf" id="4_lqrxv"]
+[ext_resource type="FontFile" uid="uid://cggd6km5lwjid" path="res://assets/fonts/SterionFont/SterionItalic-R99PA.ttf" id="5_1c2cs"]
+[ext_resource type="Shader" uid="uid://doau4qwwgtrfy" path="res://entities/shaderScripts/mainMenuSelectShader.gdshader" id="6_up7uf"]
+[ext_resource type="Script" uid="uid://ddqca5sq3mp3c" path="res://entities/scripts/fadeNodeScript.gd" id="7_g2ww1"]
+[ext_resource type="PackedScene" uid="uid://bsaokvc1ogtv6" path="res://entities/scenes/music.tscn" id="8_jll83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5knk"]
+atlas = ExtResource("2_e87l1")
+region = Rect2(12.325928, 81.43121, 3006.6348, 1783.1997)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjvh1"]
+shader = ExtResource("3_i3g7y")
+shader_parameter/noiseMode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vdty"]
+shader = ExtResource("6_up7uf")
+shader_parameter/blurAmount = 0.0
+shader_parameter/darknessAmount = 0.0
+
+[node name="MainMenu" type="Control" unique_id=1340240264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iw1m0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=354989700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_n5knk")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=114054775]
+material = SubResource("ShaderMaterial_wjvh1")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.44004452, 0.00013486236, 0.44004142, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_lqrxv")
+theme_override_fonts/italics_font = ExtResource("5_1c2cs")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "Satisporectory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=909047188]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=39316060]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="VBoxContainer" unique_id=941570759]
+layout_mode = 2
+text = "Load Game"
+
+[node name="Effect" type="CanvasLayer" parent="." unique_id=1025820313]
+
+[node name="Transitions" type="ColorRect" parent="Effect" unique_id=1799229975]
+material = SubResource("ShaderMaterial_8vdty")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("7_g2ww1")
+
+[node name="Music" parent="." unique_id=668527819 instance=ExtResource("8_jll83")]
+defaultMusicCategory = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]

@@ -10,6 +10,7 @@ var audio_folder_string = "res://assets/audio"
 var current_song_type_playing = null
 
 @export var defaultMusicCategory : String = "Background"
+@export var autoPlay : bool = true
 
 func _ready() -> void:
 	var music_categories = audio_folder.get_directories()
@@ -23,21 +24,24 @@ func _ready() -> void:
 				continue
 			audio_dict[category].append(category_dir_string.path_join(file))
 	
-	change_song_instant()
-	
 	finished.connect(change_song_instant)
-	# Globals.changeSong.connect(change_song_to_with_fade)
 	
-func change_song_with_fade(song_type : String = defaultMusicCategory):
-	if song_type == current_song_type_playing:
-		return
-	
-	# fadeout
+	if autoPlay:
+		change_song_instant()
+
+func fadeOut():
 	var fade_out_tween = create_tween()
 	fade_out_tween.tween_property(self, "volume_db", -80, fade_duration)
 	fade_out_tween.play()
 	await fade_out_tween.finished
 	self.stop()
+	
+func change_song_with_fade(song_type : String = defaultMusicCategory):
+	if song_type == current_song_type_playing:
+		return
+	
+	# fade out
+	await fadeOut()
 	
 	# load new song
 	var songs_of_type:Array = audio_dict[song_type]
@@ -58,12 +62,8 @@ func change_song_to_with_fade(song):
 		change_song_with_fade()
 		return
 	
-	# fadeout
-	var fade_out_tween = create_tween()
-	fade_out_tween.tween_property(self, "volume_db", -80, fade_duration)
-	fade_out_tween.play()
-	await fade_out_tween.finished
-	self.stop()
+	# fade out
+	await fadeOut()
 	
 	# loads it in
 	self.stream = song

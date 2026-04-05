@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CAC Space Game"
-run/main_scene="uid://dx3jiaxn7me3s"
+run/main_scene="uid://cjpnned7e437b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icons/icon.svg"
 

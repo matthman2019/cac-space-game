@@ -2,6 +2,7 @@ extends Node2D
 
 var solarSystemScene = preload("res://entities/scenes/solarSystem.tscn")
 @onready var dialog = $CanvasLayer/PanelContainer
+@onready var music = $Music
 
 var planetAmount = 0
 
@@ -47,9 +48,15 @@ func loadSave(newSaveLoc: String):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# introductions
+	await dialog.dialog(dialog.boi, "Hi, I'm Boi! (space to advance dialog)")
+	await dialog.dialog(dialog.clunk, "And I'm Clunk!")
+	await dialog.dialog(dialog.boi, "We're the robots that will help you play this game!")
+	await dialog.dialog(dialog.clunk, "First, you need a planet to start on. Let's choose one!")
+	music.change_song_with_fade("Planet Choosing")
 	loadSave("res://testing/saves/galaxySave.txt")
 	get_viewport().get_camera_2d().connect("planetClicked", discussPlanet)
-	await dialog.dialog(dialog.boi, "Alright, let's choose a planet! (space to advance dialog)")
+	await dialog.dialog(dialog.boi, "Alright, let's choose a planet!")
 	await dialog.dialog(dialog.clunk, "Click on a planet to see what it's like! Make sure to check out every planet!")
 	
 
@@ -90,8 +97,3 @@ func discussPlanet(planet : Planet):
 	else:
 		await dialog.dialog(dialog.boi, "Ok then! Let's settle here.")
 		planet.currentPop += 1000
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
