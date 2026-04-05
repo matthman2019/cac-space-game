@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjpnned7e437b"]
 
 [ext_resource type="Script" uid="uid://dsmu408qmkgj4" path="res://entities/scripts/main_menu.gd" id="1_iw1m0"]
-[ext_resource type="Texture2D" uid="uid://duhfpwdx80rfw" path="res://assets/icons/deoMainMenuRotated.jpeg" id="2_e87l1"]
+[ext_resource type="Texture2D" uid="uid://doenx00aidfog" path="res://assets/icons/JosefMainMenu.jpeg" id="2_iw1m0"]
 [ext_resource type="Shader" uid="uid://c6vu3nw7xos6j" path="res://entities/shaderScripts/titleShader.gdshader" id="3_i3g7y"]
 [ext_resource type="FontFile" uid="uid://b6gtbb74kkuog" path="res://assets/fonts/SterionFont/Sterion-BLLld.ttf" id="4_lqrxv"]
 [ext_resource type="FontFile" uid="uid://cggd6km5lwjid" path="res://assets/fonts/SterionFont/SterionItalic-R99PA.ttf" id="5_1c2cs"]
@@ -9,9 +9,9 @@
 [ext_resource type="Script" uid="uid://ddqca5sq3mp3c" path="res://entities/scripts/fadeNodeScript.gd" id="7_g2ww1"]
 [ext_resource type="PackedScene" uid="uid://bsaokvc1ogtv6" path="res://entities/scenes/music.tscn" id="8_jll83"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5knk"]
-atlas = ExtResource("2_e87l1")
-region = Rect2(12.325928, 81.43121, 3006.6348, 1783.1997)
+[sub_resource type="AtlasTexture" id="AtlasTexture_e87l1"]
+atlas = ExtResource("2_iw1m0")
+region = Rect2(-0.71029663, 86.33983, 451.33017, 244.42012)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjvh1"]
 shader = ExtResource("3_i3g7y")
@@ -38,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_n5knk")
+texture = SubResource("AtlasTexture_e87l1")
 expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=114054775]
