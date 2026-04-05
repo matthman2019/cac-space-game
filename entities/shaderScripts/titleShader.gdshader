@@ -92,13 +92,13 @@ float cnoise(vec3 P){
   return 2.2 * n_xyz;
 }
 
-void vertex() {
-	vec3 colorRGB = COLOR.rgb;
+void fragment() {
+	float colorAlpha = COLOR.a;
 	//COLOR = vec4(vec3(1, 1, 1) * rand(UV), 1);
 	if (noiseMode == 1) {
-		COLOR = vec4(saturate(COLOR.rgb, cnoise(vec3(UV, TIME))), 1);
+		COLOR = vec4(saturate(COLOR.rgb, cnoise(vec3(UV, TIME))), colorAlpha);
 	} else if (noiseMode == 2) {
-		COLOR = vec4(saturate(COLOR.rgb, rand(UV)), 1);
+		COLOR = vec4(saturate(COLOR.rgb, rand(UV)), colorAlpha);
 	}
 	
 }
