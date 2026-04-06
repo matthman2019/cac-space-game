@@ -33,9 +33,6 @@ func loadSystem(system) -> void:
 	if system == null:
 		push_error("No system data was given!")
 		return
-		'''for i in range(3):
-			var orbitDist = GlobalRNG.rng.randf_range(MIN_ORBIT_SPACING, MAX_ORBIT_SPACING)
-			addPlanet(BASE_ORBIT_DISTANCE + i * orbitDist, "Fallback Star", null)'''
 
 	starName = system.stars[0].name
 	print("generated star " + starName)
@@ -49,10 +46,10 @@ func loadSystem(system) -> void:
 		var temperature = GlobalRNG.rng.randf_range(MIN_BASE_TEMP, MAX_BASE_TEMP) / sqrt(orbit / 50)
 		addPlanet(orbit, temperature, starName, planetData)
 
-func addPlanet(orbit: float, temperature : float, starName: String, planetData) -> void:
+func addPlanet(orbit: float, temperature : float, _starName: String, planetData) -> void:
 	var planet : Planet = planetScene.instantiate()
 	planet.position = Vector2(orbit, 0)
-	planet.planetTemperature = temperature
+	planet.planetTemperature = int(temperature)
 	add_child(planet)
 	planet.add_to_group("planets")
 	planet.setup($Star.position, planetData)

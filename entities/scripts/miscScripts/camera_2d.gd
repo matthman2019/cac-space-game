@@ -10,6 +10,7 @@ var zoomSpeed: float = 0.1
 
 var followedPlanet: Node2D = null
 
+@warning_ignore("unused_signal")
 signal planetClicked # for dialog for planet choosing
 
 func _process(_delta: float) -> void:

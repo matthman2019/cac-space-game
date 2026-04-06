@@ -13,11 +13,3 @@ func setColors(darkColor : Vector3, lightColor : Vector3):
 	self.set_instance_shader_parameter("lightColor", lightColor)
 	
 	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

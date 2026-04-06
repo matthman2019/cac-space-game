@@ -75,7 +75,7 @@ func _ready():
 	sprite.texture = PlanetTextureLoader.textureList[textureID]
 	$ShadedPlanet.setColors(darkColor, lightColor)
 
-func _onStaticBody2dInputEvent(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _onStaticBody2dInputEvent(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and not click and event.button_index == MOUSE_BUTTON_LEFT:
 		click = true
 		var camera = get_viewport().get_camera_2d()
@@ -103,6 +103,7 @@ func toDict():
 	var returnDict = {}
 	for property in get_property_list():
 		if property["hint_string"] == "save" or property["name"] == "position":
+			@warning_ignore("shadowed_variable_base_class")
 			var name = property["name"]
 			returnDict[name] = var_to_str(self.get(name))
 	return returnDict

@@ -1,12 +1,93 @@
 extends Node2D
 
 var solarSystemScene = preload("res://entities/scenes/solarSystem.tscn")
+const SAVE_PATH = "res://testing/saves/galaxySave.txt"
+
 @onready var dialog = $CanvasLayer/PanelContainer
 @onready var music = $Music
 
 var planetAmount = 0
 
-# I am going to copy a lot of code
+# Galaxy generation constants (keep in sync with SystemMap)
+const UNIVERSE_SEED: int = 67676
+const GALAXY_RADIUS: int = 5000
+const GALAXY_CENTER: Vector2 = Vector2(0, 0)
+const MIN_SYSTEMS: int = 20
+const MAX_SYSTEMS: int = 30
+const MIN_PLANETS: int = 1
+const MAX_PLANETS: int = 5
+const MIN_PLANET_SIZE: int = 10
+const MAX_PLANET_SIZE: int = 100
+
+# Generates a full galaxy, saves it to disk, then cleans up the temporary nodes.
+# Called when no save file exists (i.e. New Game).
+func generateAndSave() -> void:
+	# Ensure the saves directory exists
+	var dir = DirAccess.open("res://testing/")
+	if dir and not dir.dir_exists("saves"):
+		dir.make_dir("saves")
+
+	GlobalRNG.rng.seed = UNIVERSE_SEED
+
+	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
+		var pos = Vector2(GALAXY_RADIUS * 2, GALAXY_RADIUS * 2)
+		while (pos - GALAXY_CENTER).length() > GALAXY_RADIUS:
+			pos = Vector2(
+				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS),
+				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
+			)
+
+		var starArray = StarGeneration.makeStar()
+		var systemStarName: String = starArray[0]
+
+		var planetList: Array = []
+		var planetTextureAmount = len(PlanetTextureLoader.textureList) - 1
+		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
+			var darkColor: Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
+			var lightColor: Vector3 = Vector3(1, 1, 1) - darkColor
+			planetList.append(SystemMap.PlanetData.new(
+				PlanetNameGenerator.generate(),
+				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
+				j,
+				[],
+				systemStarName,
+				0,
+				0,
+				0,
+				darkColor,
+				lightColor,
+				GlobalRNG.rng.randi_range(0, planetTextureAmount)
+			))
+
+		var system = SystemMap.System.new(pos, planetList, [SystemMap.StarData.new(starArray[0], starArray[1], starArray[2])])
+
+		var solarSys = solarSystemScene.instantiate()
+		solarSys.position = pos
+		solarSys.visible = false  # hide during generation; loadSave adds the display node
+		add_child(solarSys)
+		solarSys.loadSystem(system)
+
+	# Wait a moment so all nodes fully initialize before saving
+	await get_tree().create_timer(1.0).timeout
+
+	var saveData = []
+	for child in get_children():
+		if child is SolarSystem:
+			saveData.append(child.toDict())
+
+	var saveFile = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if saveFile:
+		saveFile.store_string(JSON.stringify(saveData, "\t"))
+		saveFile.close()
+	else:
+		push_error("New game: failed to write save file!")
+
+	# Clean up — loadSave() will add the one visible system
+	for child in get_children():
+		if child is SolarSystem:
+			child.queue_free()
+
+
 func loadSave(newSaveLoc: String):
 	assert(newSaveLoc != null)
 	var saveLocation = newSaveLoc
@@ -14,11 +95,12 @@ func loadSave(newSaveLoc: String):
 	if saveString.is_empty():
 		push_error("Hey we weren't able to open / write the save file: " + saveLocation)
 		return
-	
+
 	var saveDict = JSON.parse_string(saveString)
 	if not saveDict:
 		push_error("Failed to parse save file: " + saveLocation)
-	
+		return
+
 	# find a habitable system
 	var livableSystem : Dictionary = {}
 	for systemData in saveDict:
@@ -33,32 +115,37 @@ func loadSave(newSaveLoc: String):
 			if hot and cold and right:
 				livableSystem = systemData
 				break
+
+	if livableSystem.is_empty():
+		push_error("No habitable system found in save file!")
+		return
+
 	livableSystem["position"] = var_to_str(Vector2.ZERO)
-	
+
 	planetAmount = len(livableSystem["planetList"])
-	
+
 	var solarSys = solarSystemScene.instantiate()
 	add_child(solarSys)
 	solarSys.fromDict(livableSystem)
-	
-	
-	
-	
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# If there's no save (New Game), generate the galaxy first
+	if not FileAccess.file_exists(SAVE_PATH):
+		await generateAndSave()
+
 	# introductions
 	await dialog.dialog(dialog.boi, "Hi, I'm Boi! (space to advance dialog)")
 	await dialog.dialog(dialog.clunk, "And I'm Clunk!")
 	await dialog.dialog(dialog.boi, "We're the robots that will help you play this game!")
 	await dialog.dialog(dialog.clunk, "First, you need a planet to start on. Let's choose one!")
 	music.change_song_with_fade("Planet Choosing")
-	loadSave("res://testing/saves/galaxySave.txt")
+	loadSave(SAVE_PATH)
 	get_viewport().get_camera_2d().connect("planetClicked", discussPlanet)
 	await dialog.dialog(dialog.boi, "Alright, let's choose a planet!")
 	await dialog.dialog(dialog.clunk, "Click on a planet to see what it's like! Make sure to check out every planet!")
-	
+
 
 func kelvinToFahrenheit(kelvin : float):
 	return (kelvin - 273) * (9/5) + 32
@@ -82,11 +169,11 @@ func discussPlanet(planet : Planet):
 		habitable = true
 		await dialog.dialog(dialog.boi, "That planet looks like a nice place to live!")
 		await dialog.dialog(dialog.clunk, "{0} Kelvin is equivalent to {1} degrees fahrenheit! I could live there!".format([temp, kelvinToFahrenheit(temp)]))
-	
+
 	if len(checkedNames) == planetAmount and not canSettle:
 		canSettle = true
 		await dialog.dialog(dialog.boi, "Looks like you have checked out every planet! You can now choose a planet to settle on.")
-	
+
 	if not canSettle:
 		return
 	var settleChoice = await dialog.choice(dialog.boi, "Would you like to settle here?", ["Yes", "No"])
