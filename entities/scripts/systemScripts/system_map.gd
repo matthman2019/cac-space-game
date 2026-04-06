@@ -54,7 +54,7 @@ class System:
 		stars = starList
 
 var UNIVERSE_SEED: int = 67676
-var GALAXY_RADIUS: int = 5000
+var GALAXY_RADIUS: int = 15000
 var GALAXY_CENTER: Vector2 = Vector2(0, 0)
 var MIN_SYSTEMS: int = 20
 var MAX_SYSTEMS: int = 30
@@ -152,7 +152,24 @@ func loadSave(newSaveLoc: String):
 		var solarSys = solarSystemScene.instantiate()
 		add_child(solarSys)
 		solarSys.fromDict(system)
-	
+
+	_focusSettledSystem()
+
+# Positions the camera on the player's settled planet when loading into the game.
+func _focusSettledSystem() -> void:
+	var camera = get_viewport().get_camera_2d()
+	if not camera:
+		return
+	for child in get_children():
+		if not child is SolarSystem:
+			continue
+		for grandchild in child.get_children():
+			if grandchild is Planet and grandchild.currentPop > 0:
+				# Snap the camera position and start following the settled planet
+				camera.position = grandchild.global_position
+				camera.followedPlanet = grandchild
+				return
+
 # autosave on close
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

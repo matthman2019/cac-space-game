@@ -32,6 +32,11 @@ var click: bool = false
 var _popAccumulator: float = 0.0
 const GROWTH_RATE: float = 0.001  # 0.1% per second
 
+# --- CIV ICON ---
+var civIcon: Sprite2D = null
+const ICON_SCREEN_SIZE: float = 28.0   # how wide the icon appears on screen in pixels
+const ICON_SHOW_ZOOM: float = 0.8      # only visible below this camera zoom level
+
 func setup(sPos: Vector2, pData = null) -> void:
 	starPos = sPos
 
@@ -69,11 +74,36 @@ func _process(delta: float) -> void:
 	self.researchPerSec = self.currentPop / 1000.0
 	self.totalResearch += researchPerSec * delta
 
+	# Keep the civ icon a constant screen size, floating above the planet
+	if civIcon:
+		var camera = get_viewport().get_camera_2d()
+		if camera:
+			var z = camera.zoom.x
+			civIcon.visible = currentPop > 0 and z < ICON_SHOW_ZOOM
+			if civIcon.visible:
+				var tex := civIcon.texture
+				# Scale so the icon is always ICON_SCREEN_SIZE pixels wide on screen
+				civIcon.scale = Vector2(
+					ICON_SCREEN_SIZE / (tex.get_width()  * z),
+					ICON_SCREEN_SIZE / (tex.get_height() * z)
+				)
+				# Centered on the planet — fine to overlap when zoomed out
+				civIcon.position = Vector2.ZERO
+				# Cancel out the planet's spin so the icon always faces up
+				civIcon.rotation = -rotation
+
 func _ready():
 	$Area2D.connect("input_event", _onStaticBody2dInputEvent)
 	$Area2D.connect("mouse_exited", _onStaticBody2dMouseExited)
 	sprite.texture = PlanetTextureLoader.textureList[textureID]
 	$ShadedPlanet.setColors(darkColor, lightColor)
+
+	# Build the civ icon sprite (hidden until this planet is settled and zoomed out)
+	civIcon = Sprite2D.new()
+	civIcon.texture = preload("res://assets/icons/civIcon.png")
+	civIcon.visible = false
+	civIcon.z_index = 10  # always draw on top of planets / stars
+	add_child(civIcon)
 
 func _onStaticBody2dInputEvent(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and not click and event.button_index == MOUSE_BUTTON_LEFT:

@@ -10,7 +10,7 @@ var planetAmount = 0
 
 # Galaxy generation constants (keep in sync with SystemMap)
 const UNIVERSE_SEED: int = 67676
-const GALAXY_RADIUS: int = 5000
+const GALAXY_RADIUS: int = 15000
 const GALAXY_CENTER: Vector2 = Vector2(0, 0)
 const MIN_SYSTEMS: int = 20
 const MAX_SYSTEMS: int = 30
@@ -129,6 +129,31 @@ func loadSave(newSaveLoc: String):
 	solarSys.fromDict(livableSystem)
 
 
+# Writes the settled planet's updated population back into the full save file.
+func saveSettledPlanet(planet: Planet) -> void:
+	var saveString = FileAccess.get_file_as_string(SAVE_PATH)
+	if saveString.is_empty():
+		return
+	var saveData = JSON.parse_string(saveString)
+	if not saveData:
+		return
+
+	for systemDict in saveData:
+		if str_to_var(systemDict["starName"]) == planet.planetStarName:
+			for pDict in systemDict["planetList"]:
+				if str_to_var(pDict["planetName"]) == planet.planetName:
+					pDict["currentPop"] = var_to_str(planet.currentPop)
+					break
+			break
+
+	var saveFile = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if saveFile:
+		saveFile.store_string(JSON.stringify(saveData, "\t"))
+		saveFile.close()
+	else:
+		push_error("Could not write settled planet back to save file!")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# If there's no save (New Game), generate the galaxy first
@@ -147,8 +172,8 @@ func _ready() -> void:
 	await dialog.dialog(dialog.clunk, "Click on a planet to see what it's like! Make sure to check out every planet!")
 
 
-func kelvinToFahrenheit(kelvin : float):
-	return (kelvin - 273) * (9/5) + 32
+func kelvinToFahrenheit(kelvin : float) -> float:
+	return (kelvin - 273.0) * (9.0 / 5.0) + 32.0
 
 
 var checkedNames : Array[String] = []
@@ -184,3 +209,12 @@ func discussPlanet(planet : Planet):
 	else:
 		await dialog.dialog(dialog.boi, "Ok then! Let's settle here.")
 		planet.currentPop += 1000
+		saveSettledPlanet(planet)
+		await dialog.dialog(dialog.clunk, "Welcome to {0}! Your 1,000 explorers are ready to settle.".format([planet.planetName]))
+		await dialog.dialog(dialog.boi, "You chose well. This planet sits in the habitable zone — between 273K and 373K.")
+		await dialog.dialog(dialog.clunk, "That's the temperature range where liquid water exists. And where there's water, there can be life!")
+		await dialog.dialog(dialog.boi, "273K is the freezing point of water. 373K is the boiling point. Your planet is right in the middle — {0}K!".format([planet.planetTemperature]))
+		await dialog.dialog(dialog.clunk, "But your system is just one tiny part of something much, much bigger...")
+		await dialog.dialog(dialog.boi, "It's time to see the galaxy. Your journey is just beginning!")
+		await music.fadeOut()
+		get_tree().change_scene_to_file("res://entities/scenes/GAME.tscn")
