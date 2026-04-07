@@ -3,3 +3,5 @@ user://
 |---saves/
 	|
 	|---(individual saves)/
+		|
+		|---galaxySave.json

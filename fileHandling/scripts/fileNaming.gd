@@ -15,5 +15,5 @@ static func makeUniquePath(path: String, fileLevel := true) -> String:
 		count += 1
 	return path + "_WHY_CAN'T_WE_FIND_A_VALID_PATH_FOR_THIS_FILE"
 
-static func getBackupPrefix() -> String:
-	return makeUniquePath("BACKUP_%s" % [Time.get_datetime_string_from_system()])
+static func withBackupPrefix(path: String) -> String:
+	return makeUniquePath("BACKUP_%s_%s" % [Time.get_datetime_string_from_system(), path])
