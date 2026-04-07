@@ -127,8 +127,6 @@ func hideGui():
 	if gui != null:
 		gui.visible = false
 
-
-
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():

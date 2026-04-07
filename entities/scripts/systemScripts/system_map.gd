@@ -2,7 +2,7 @@ class_name SystemMap
 extends Node2D
 
 var solarSystemScene = preload("res://entities/scenes/solarSystem.tscn")
-var saveLocation : String = "res://testing/saves/galaxySave.txt"
+var saveLocation: String = "res://testing/saves/galaxySave.txt"
 
 class StarData:
 	var name: String = "Star"
@@ -22,12 +22,12 @@ class PlanetData:
 	var population: int = 0
 	var researchPerSec: int = 0
 	var totalResearch: int = 0
-	var darkColor : Vector3 = Vector3.ZERO
-	var lightColor : Vector3 = Vector3.ONE
-	var orbitSize : float = 10.0
+	var darkColor: Vector3 = Vector3.ZERO
+	var lightColor: Vector3 = Vector3.ONE
+	var orbitSize: float = 10.0
 	var orbitSpeed = (1.0 / sqrt(orbitSize / 100.0)) / 10.0
-	var spinSpeed : float = 1
-	var textureID : int = 0
+	var spinSpeed: float = 1
+	var textureID: int = 0
 	func _init(planetName: String, planetSize: int, systemOrder: int, planetResources: Array, planetStarName: String,
 	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3,
 	planetTextureID : int):
@@ -90,8 +90,8 @@ func generateUniverse():
 		var planetList: Array = []
 		var planetTextureAmount = len(PlanetTextureLoader.textureList) - 1
 		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
-			var darkColor : Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
-			var lightColor : Vector3 = Vector3(1, 1, 1) - darkColor
+			var darkColor: Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
+			var lightColor: Vector3 = Vector3(1, 1, 1) - darkColor
 			planetList.append(PlanetData.new(
 				PlanetNameGenerator.generate(),
 				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),

@@ -1,14 +1,14 @@
 extends Sprite2D
 
 func shuffleColor():
-	var shaderMaterial : ShaderMaterial = material
-	var darkColor : Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
-	var lightColor : Vector3 = Vector3(1, 1, 1) - darkColor #  Vector3(GlobalRNG.rng.randf_range(.5, 1), GlobalRNG.rng.randf_range(.5, 1), GlobalRNG.rng.randf_range(.5, 1))
+	var shaderMaterial: ShaderMaterial = material
+	var darkColor: Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
+	var lightColor: Vector3 = Vector3(1, 1, 1) - darkColor #  Vector3(GlobalRNG.rng.randf_range(.5, 1), GlobalRNG.rng.randf_range(.5, 1), GlobalRNG.rng.randf_range(.5, 1))
 	if shaderMaterial:
 		self.set_instance_shader_parameter("darkColor", darkColor)
 		self.set_instance_shader_parameter("lightColor", lightColor)
 
-func setColors(darkColor : Vector3, lightColor : Vector3):
+func setColors(darkColor: Vector3, lightColor: Vector3):
 	self.set_instance_shader_parameter("darkColor", darkColor)
 	self.set_instance_shader_parameter("lightColor", lightColor)
 	

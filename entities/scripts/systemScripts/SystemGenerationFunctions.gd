@@ -13,7 +13,7 @@ enum StarSize {
 	M = 6,
 }
 
-static func weightedRandint(args : Array[Array]) -> int:
+static func weightedRandint(args: Array[Array]) -> int:
 	var probabilitySum = 0.0
 	for possibilityTuple in args:
 		probabilitySum += possibilityTuple[1]

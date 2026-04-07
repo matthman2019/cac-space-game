@@ -1,11 +1,11 @@
 extends PanelContainer
 
-signal dialogButtonPressed(name : String)
+signal dialogButtonPressed(name: String)
 
-var bracketMode : bool = false
-var pauseDuration : float = 0.5
-var shortPauseDuration : float = 0.2
-var textDispId : int = 0
+var bracketMode: bool = false
+var pauseDuration: float = 0.5
+var shortPauseDuration: float = 0.2
+var textDispId: int = 0
 
 @onready var textbox = $HBoxContainer/MarginContainer2/VBoxContainer/RichTextLabel
 @onready var imagebox = $HBoxContainer/MarginContainer/TextureRect
@@ -19,7 +19,7 @@ var textDispId : int = 0
 
 signal keyPressed
 signal keyReleased
-var spaceDown : bool = false
+var spaceDown: bool = false
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.as_text() == "Space":
@@ -30,12 +30,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			keyReleased.emit()
 			spaceDown = false
 
-func _displayTextWithKey(text : String, instantText : bool = false):
+func _displayTextWithKey(text: String, instantText: bool = false):
 	await _dispText(text, instantText)
 	await keyPressed
 	await keyReleased
 
-func _dispText(dispText : String, instantText : bool = false):
+func _dispText(dispText: String, instantText: bool = false):
 	visible = true
 	textDispId += 1
 	var localTextDispId = textDispId
@@ -72,11 +72,11 @@ func _dispText(dispText : String, instantText : bool = false):
 
 	bracketMode = false
 
-func _switchImage(image : Texture2D):
+func _switchImage(image: Texture2D):
 	imagebox.texture = image
 
 ## Displays dialog.
-func dialog(image : Texture2D, text : String):
+func dialog(image: Texture2D, text: String):
 	_clearDialogButtons()
 	_switchImage(image)
 	visible = true
@@ -87,18 +87,17 @@ func _clearDialogButtons():
 	for child in buttonContainer.get_children():
 		child.queue_free()
 
-func _buttonPressedCallback(buttonName : String):
+func _buttonPressedCallback(buttonName: String):
 	dialogButtonPressed.emit(buttonName)
 
-func _addDialogButton(text : String):
+func _addDialogButton(text: String):
 	var returnButton := Button.new()
 	returnButton.text = text
 	returnButton.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	returnButton.pressed.connect(_buttonPressedCallback.bind(text))
 	buttonContainer.add_child(returnButton)
 
-
-func choice(image : Texture2D, text : String, choices : Array) -> String:
+func choice(image: Texture2D, text: String, choices: Array) -> String:
 	# show dialog
 	_clearDialogButtons()
 	_switchImage(image)
@@ -113,7 +112,6 @@ func choice(image : Texture2D, text : String, choices : Array) -> String:
 	var result = await dialogButtonPressed
 	visible = false
 	return result
-
 
 func _ready():
 	'''

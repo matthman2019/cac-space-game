@@ -60,8 +60,6 @@ func addPlanetFromDict(dict : Dictionary):
 	add_child(planet)
 	planet.add_to_group("planets")
 	
-	
-
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():
@@ -84,5 +82,3 @@ func fromDict(data : Dictionary):
 	
 	for planetDict in data["planetList"]:
 		addPlanetFromDict(planetDict)
-		
-	
