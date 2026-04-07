@@ -4,7 +4,6 @@ var userDirList = [
 	"saves"
 ]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for dir in userDirList:
 		var userDir: String = "user://" + dir
