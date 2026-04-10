@@ -4,6 +4,8 @@
 [ext_resource type="Shader" uid="uid://3dyi6xpnjufd" path="res://entities/shaderScripts/planetShader.gdshader" id="2_7afow"]
 [ext_resource type="Texture2D" uid="uid://ba4umu0vt1u78" path="res://assets/planets/Gray Gas 30 by 30.png" id="3_50shw"]
 [ext_resource type="Script" uid="uid://c8u462c3cu5we" path="res://entities/scripts/planetScripts/shaded_planet_sprite_test.gd" id="4_lf4du"]
+[ext_resource type="PackedScene" uid="uid://t15cwfowmsgc" path="res://entities/scenes/rocket.tscn" id="5_50shw"]
+[ext_resource type="PackedScene" uid="uid://chwvd71rtqtdh" path="res://entities/scenes/orbital.tscn" id="6_lf4du"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_58407"]
 shader = ExtResource("2_7afow")
@@ -23,3 +25,9 @@ script = ExtResource("4_lf4du")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=480262202]
 shape = SubResource("CircleShape2D_nktd4")
+
+[node name="Rocket" parent="." unique_id=1006317392 instance=ExtResource("5_50shw")]
+
+[node name="Orbital" parent="." unique_id=974692253 instance=ExtResource("6_lf4du")]
+
+[editable path="Rocket"]

@@ -8,17 +8,6 @@ const SAVE_PATH = "res://testing/saves/galaxySave.txt"
 
 var planetAmount = 0
 
-# Galaxy generation constants (keep in sync with SystemMap)
-const UNIVERSE_SEED: int = 67676
-const GALAXY_RADIUS: int = 15000
-const GALAXY_CENTER: Vector2 = Vector2(0, 0)
-const MIN_SYSTEMS: int = 20
-const MAX_SYSTEMS: int = 30
-const MIN_PLANETS: int = 1
-const MAX_PLANETS: int = 5
-const MIN_PLANET_SIZE: int = 10
-const MAX_PLANET_SIZE: int = 100
-
 # Generates a full galaxy, saves it to disk, then cleans up the temporary nodes.
 # Called when no save file exists (i.e. New Game).
 func generateAndSave() -> void:
@@ -27,53 +16,12 @@ func generateAndSave() -> void:
 	if dir and not dir.dir_exists("saves"):
 		dir.make_dir("saves")
 
-	GlobalRNG.rng.seed = UNIVERSE_SEED
-
-	for i in range(GlobalRNG.rng.randi_range(MIN_SYSTEMS, MAX_SYSTEMS)):
-		var pos = Vector2(GALAXY_RADIUS * 2, GALAXY_RADIUS * 2)
-		while (pos - GALAXY_CENTER).length() > GALAXY_RADIUS:
-			pos = Vector2(
-				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS),
-				GlobalRNG.rng.randf_range(-GALAXY_RADIUS, GALAXY_RADIUS)
-			)
-
-		var starArray = StarGeneration.makeStar()
-		var systemStarName: String = starArray[0]
-
-		var planetList: Array = []
-		var planetTextureAmount = len(PlanetTextureLoader.textureList) - 1
-		for j in range(MIN_PLANETS, GlobalRNG.rng.randi_range(MIN_PLANETS + 1, MAX_PLANETS + 1)):
-			var darkColor: Vector3 = Vector3(GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5), GlobalRNG.rng.randf_range(0, 0.5))
-			var lightColor: Vector3 = Vector3(1, 1, 1) - darkColor
-			planetList.append(SystemMap.PlanetData.new(
-				PlanetNameGenerator.generate(),
-				GlobalRNG.rng.randi_range(MIN_PLANET_SIZE, MAX_PLANET_SIZE),
-				j,
-				[],
-				systemStarName,
-				0,
-				0,
-				0,
-				darkColor,
-				lightColor,
-				GlobalRNG.rng.randi_range(0, planetTextureAmount)
-			))
-
-		var system = SystemMap.System.new(pos, planetList, [SystemMap.StarData.new(starArray[0], starArray[1], starArray[2])])
-
-		var solarSys = solarSystemScene.instantiate()
-		solarSys.position = pos
-		solarSys.visible = false  # hide during generation; loadSave adds the display node
-		add_child(solarSys)
-		solarSys.loadSystem(system)
+	SaveLoadUtil.generateUniverse()
 
 	# Wait a moment so all nodes fully initialize before saving
 	await get_tree().create_timer(1.0).timeout
 
-	var saveData = []
-	for child in get_children():
-		if child is SolarSystem:
-			saveData.append(child.toDict())
+	var saveData = await SaveLoadUtil.toDict()
 
 	var saveFile = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if saveFile:
@@ -103,7 +51,7 @@ func loadSave(newSaveLoc: String):
 
 	# find a habitable system
 	var livableSystem : Dictionary = {}
-	for systemData in saveDict:
+	for systemData in saveDict["systems"]:
 		var cold = false
 		var hot = false
 		var right = false
@@ -138,7 +86,7 @@ func saveSettledPlanet(planet: Planet) -> void:
 	if not saveData:
 		return
 
-	for systemDict in saveData:
+	for systemDict in saveData["systems"]:
 		if str_to_var(systemDict["starName"]) == planet.planetStarName:
 			for pDict in systemDict["planetList"]:
 				if str_to_var(pDict["planetName"]) == planet.planetName:

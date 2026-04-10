@@ -6,6 +6,8 @@ var MAX_SPIN_SPEED: float = 1.0
 
 @onready var sprite: Sprite2D = $ShadedPlanet
 @onready var gui = get_tree().get_first_node_in_group("planet_info_gui")
+@onready var orbitalScene = preload("res://entities/scenes/orbital.tscn")
+@onready var rocketScene = preload("res://entities/scenes/rocket.tscn")
 
 # --- PLANET DATA ---
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planetName: String = "Unknown"
@@ -20,6 +22,8 @@ var MAX_SPIN_SPEED: float = 1.0
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var darkColor: Vector3 = Vector3.ZERO
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var lightColor: Vector3 = Vector3.ONE
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var textureID : int = 0
+# orbitals are not saved in planets
+var orbitalList : Array[Orbital] = []
 
 # --- ORBIT ---
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var starPos: Vector2
@@ -127,6 +131,10 @@ func hideGui():
 	if gui != null:
 		gui.visible = false
 
+func addOrbitalFromDict(orbitalDict : Dictionary):
+	if orbitalDict["type"] == "orbital":
+		pass
+
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():
@@ -138,4 +146,6 @@ func toDict():
 
 func fromDict(dict : Dictionary):
 	for key in dict.keys():
+		if key == "orbitalList": continue
 		set(key, str_to_var(dict[key]))
+	
