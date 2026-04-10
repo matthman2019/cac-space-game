@@ -46,15 +46,26 @@ var systemList: Array = []
 
 
 class StarData:
+	static var runningStarID := 0
+	static func _nextStarID():
+		runningStarID += 1
+		return runningStarID
 	var name: String = "Star"
 	var color: Color = Color.WHITE
 	var size: float = 1.0
+	var uid: int = 0
 	func _init(starName: String, starColor: Color, starSize: float):
 		name = starName
 		color = starColor
 		size = starSize
+		uid = _nextStarID()
+
 
 class PlanetData:
+	static var runningPlanetID := 0
+	static func _nextPlanetID():
+		runningPlanetID += 1
+		return runningPlanetID
 	var name: String = 'Unknown'
 	var size: int = 0
 	var order: int = 1
@@ -69,6 +80,7 @@ class PlanetData:
 	var orbitSpeed = (1.0 / sqrt(orbitSize / 100.0)) / 10.0
 	var spinSpeed: float = 1
 	var textureID: int = 0
+	var uid: int = 0
 	func _init(planetName: String, planetSize: int, systemOrder: int, planetResources: Array, planetStarName: String,
 	planetCurrentPop: int, planetResearchSec: int, planetTotalResearch: int, darkColorVec : Vector3, lightColorVec : Vector3,
 	planetTextureID : int):
@@ -84,6 +96,7 @@ class PlanetData:
 		darkColor = darkColorVec
 		lightColor = lightColorVec
 		textureID = planetTextureID
+		uid = _nextPlanetID()
 
 class System:
 	var location: Vector2 = Vector2(0, 0)

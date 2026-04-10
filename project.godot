@@ -21,6 +21,7 @@ GlobalRNG="*res://entities/scripts/miscScripts/GlobalRNG.gd"
 PlanetTextureLoader="*uid://pi6ch0csxyx7"
 InitDirectories="uid://bnu6emv8jx50x"
 SaveLoadUtil="*uid://ljrnpxc4iww"
+UidTracker="*uid://w3om4yfg5e8j"
 
 [display]
 

@@ -37,13 +37,13 @@ func loadSave(newSaveLoc: String):
 	var saveDict : Dictionary = JSON.parse_string(saveString)
 	if not saveDict:
 		push_error("Failed to parse save file: " + saveLocation)
-	
 	for system in saveDict["systems"]:
 		var solarSys = solarSystemScene.instantiate()
 		add_child(solarSys)
 		solarSys.fromDict(system)
 	for orbital in saveDict["orbitals"]:
-		break ## Add this
+		var orbitalUid = str_to_var(orbital["planetParentUid"])
+		UidTracker.getPlanet(orbitalUid).addOrbital(Orbital.skyCity)
 
 	_focusSettledSystem()
 

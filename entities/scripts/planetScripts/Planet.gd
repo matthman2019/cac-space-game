@@ -6,8 +6,8 @@ var MAX_SPIN_SPEED: float = 1.0
 
 @onready var sprite: Sprite2D = $ShadedPlanet
 @onready var gui = get_tree().get_first_node_in_group("planet_info_gui")
-@onready var orbitalScene = preload("res://entities/scenes/orbital.tscn")
-@onready var rocketScene = preload("res://entities/scenes/rocket.tscn")
+var orbitalScene = preload("res://entities/scenes/orbital.tscn")
+var rocketScene = preload("res://entities/scenes/rocket.tscn")
 
 # --- PLANET DATA ---
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var planetName: String = "Unknown"
@@ -22,6 +22,7 @@ var MAX_SPIN_SPEED: float = 1.0
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var darkColor: Vector3 = Vector3.ZERO
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var lightColor: Vector3 = Vector3.ONE
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var textureID : int = 0
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var uid: int = 0
 # orbitals are not saved in planets
 var orbitalList : Array[Orbital] = []
 
@@ -63,6 +64,9 @@ func setup(sPos: Vector2, pData = null) -> void:
 		lightColor = pData.lightColor
 		sprite.setColors(darkColor, lightColor) # this must be run on setup()
 		textureID = pData.textureID
+		uid = pData.uid
+	
+	UidTracker.registerPlanet(self)
 
 func _process(delta: float) -> void:
 	angle += orbitSpeed * delta
@@ -131,10 +135,6 @@ func hideGui():
 	if gui != null:
 		gui.visible = false
 
-func addOrbitalFromDict(orbitalDict : Dictionary):
-	if orbitalDict["type"] == "orbital":
-		pass
-
 func toDict():
 	var returnDict = {}
 	for property in get_property_list():
@@ -146,6 +146,18 @@ func toDict():
 
 func fromDict(dict : Dictionary):
 	for key in dict.keys():
-		if key == "orbitalList": continue
+		if key == "orbitalList": 
+			continue
 		set(key, str_to_var(dict[key]))
-	
+		if key == "uid": 
+			UidTracker.registerPlanet(self)
+
+# for ease
+func addOrbital(texture : Texture2D) -> Orbital:
+	var newOrbital : Orbital = orbitalScene.instantiate()
+	newOrbital.planetParent = self
+	newOrbital.planetParentUid = self.uid
+	newOrbital.setTexture(texture)
+	add_child(newOrbital)
+	orbitalList.append(newOrbital)
+	return newOrbital

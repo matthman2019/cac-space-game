@@ -77,15 +77,16 @@ func loadSave(newSaveLoc: String):
 	solarSys.fromDict(livableSystem)
 
 
-# Writes the settled planet's updated population back into the full save file.
-func saveSettledPlanet(planet: Planet) -> void:
+## Writes the settled planet's updated population back into the full save file.
+func saveSettledPlanet(planet: Planet, orbital: Orbital) -> void:
 	var saveString = FileAccess.get_file_as_string(SAVE_PATH)
 	if saveString.is_empty():
 		return
 	var saveData = JSON.parse_string(saveString)
 	if not saveData:
 		return
-
+	
+	# save planet
 	for systemDict in saveData["systems"]:
 		if str_to_var(systemDict["starName"]) == planet.planetStarName:
 			for pDict in systemDict["planetList"]:
@@ -93,6 +94,8 @@ func saveSettledPlanet(planet: Planet) -> void:
 					pDict["currentPop"] = var_to_str(planet.currentPop)
 					break
 			break
+	# save orbital
+	saveData["orbitals"].append(orbital.toDict())
 
 	var saveFile = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if saveFile:
@@ -100,7 +103,6 @@ func saveSettledPlanet(planet: Planet) -> void:
 		saveFile.close()
 	else:
 		push_error("Could not write settled planet back to save file!")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -118,6 +120,7 @@ func _ready() -> void:
 	get_viewport().get_camera_2d().connect("planetClicked", discussPlanet)
 	await dialog.dialog(dialog.boi, "Alright, let's choose a planet!")
 	await dialog.dialog(dialog.clunk, "Click on a planet to see what it's like! Make sure to check out every planet!")
+	
 
 
 func kelvinToFahrenheit(kelvin : float) -> float:
@@ -157,7 +160,8 @@ func discussPlanet(planet : Planet):
 	else:
 		await dialog.dialog(dialog.boi, "Ok then! Let's settle here.")
 		planet.currentPop += 1000
-		saveSettledPlanet(planet)
+		var newOrbital = planet.addOrbital(Orbital.skyCity)
+		saveSettledPlanet(planet, newOrbital)
 		await dialog.dialog(dialog.clunk, "Welcome to {0}! Your 1,000 explorers are ready to settle.".format([planet.planetName]))
 		await dialog.dialog(dialog.boi, "You chose well. This planet sits in the habitable zone — between 273K and 373K.")
 		await dialog.dialog(dialog.clunk, "That's the temperature range where liquid water exists. And where there's water, there can be life!")

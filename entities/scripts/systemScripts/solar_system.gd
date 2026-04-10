@@ -16,6 +16,7 @@ var MAX_BASE_TEMP: int = 1000
 
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var rotationSpeed: float
 @export_custom(PROPERTY_HINT_SAVE_FILE, "save") var starName: String = ""
+@export_custom(PROPERTY_HINT_SAVE_FILE, "save") var uid: int = 0
 
 func _process(delta: float) -> void:
 	starSprite.rotation += rotationSpeed * delta
@@ -35,6 +36,7 @@ func loadSystem(system) -> void:
 		return
 
 	starName = system.stars[0].name
+	uid = system.stars[0].uid
 	print("generated star " + starName)
 	starSprite.modulate = system.stars[0].color
 	var s = STAR_BASE_SCALE + system.stars[0].size * STAR_SIZE_SCALE
